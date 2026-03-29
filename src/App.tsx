@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { 
   Home,
   ArrowLeft,
@@ -29,6 +29,24 @@ export default function App() {
   const [isOrderMinimized, setIsOrderMinimized] = useState(false);
   
   const { isMobile, isPortrait, isMobilePortrait } = useMobileDetection();
+
+  // Dark Mode verhindern und Theme fixieren
+  useEffect(() => {
+    // Meta-Tags für Dark Mode Prevention
+    const metaColorScheme = document.querySelector('meta[name="color-scheme"]');
+    if (metaColorScheme) {
+      metaColorScheme.setAttribute('content', 'light only');
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'color-scheme';
+      meta.content = 'light only';
+      document.head.appendChild(meta);
+    }
+    
+    // CSS Variablen für Light Mode forcieren
+    document.documentElement.style.colorScheme = 'light only';
+    document.documentElement.setAttribute('data-theme', 'light');
+  }, []);
 
   const total = useMemo(() => {
     return order.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -178,7 +196,7 @@ export default function App() {
             isOrderMinimized ? 'h-16' : 'flex-1'
           }`}>
             {/* Order Header */}
-            <div className="h-16 bg-white border-t border-slate-200 flex items-center justify-between px-4 shadow-sm">
+            <div className="h-16 bg-white border-t border-slate-200 flex items-center justify-between px-4 shadow-sm flex-shrink-0">
               <div className="flex items-center gap-2">
                 <div className="bg-orange-500 text-white px-2 py-1 rounded-full text-[10px] font-black">
                   {order.reduce((a, b) => a + b.quantity, 0)} POS
@@ -195,15 +213,17 @@ export default function App() {
             
             {/* Order Content */}
             {!isOrderMinimized && (
-              <Sidebar 
-                order={order}
-                total={total}
-                onUpdateQuantity={updateQuantity}
-                onRemoveFromOrder={removeFromOrder}
-                onClearOrder={clearOrder}
-                onPaymentClick={() => setIsPaymentModalOpen(true)}
-                isMobilePortrait={true}
-              />
+              <div className="flex-1 flex flex-col min-h-0">
+                <Sidebar 
+                  order={order}
+                  total={total}
+                  onUpdateQuantity={updateQuantity}
+                  onRemoveFromOrder={removeFromOrder}
+                  onClearOrder={clearOrder}
+                  onPaymentClick={() => setIsPaymentModalOpen(true)}
+                  isMobilePortrait={true}
+                />
+              </div>
             )}
           </div>
         </div>

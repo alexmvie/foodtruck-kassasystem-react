@@ -3,6 +3,7 @@ import { ChevronRight } from 'lucide-react';
 import { Product } from '../types';
 import { getButtonTextClass } from '../styles/tokens';
 import { useMobileDetection } from '../hooks/useMobileDetection';
+import { getAbbreviation } from '../utils/abbreviations';
 
 interface ProductButtonProps {
   product: Product;
@@ -31,6 +32,11 @@ export const ProductButton = ({ product, onClick }: ProductButtonProps) => {
     return 'text-lg'; // Desktop: groß
   };
 
+  // Abkürzung für Mobile
+  const displayName = isMobile && isPortrait ? getAbbreviation(product.id, product.name, true) : product.name;
+  const displaySubtext = isMobile && isPortrait && product.subtext ? 
+    getAbbreviation(`${product.id}_sub`, product.subtext, true) : product.subtext;
+
   return (
     <motion.button
       initial={{ opacity: 0, scale: 0.9 }}
@@ -47,11 +53,11 @@ export const ProductButton = ({ product, onClick }: ProductButtonProps) => {
       {/* Obere Bereich: Name und Subtext */}
       <div className="flex flex-col items-center text-center flex-1 min-w-0">
         <span className={`${getTextSize()} leading-tight ${getButtonTextClass('primary')} truncate`}>
-          {product.name}
+          {displayName}
         </span>
-        {product.subtext && (
+        {displaySubtext && (
           <span className={`${getSubtextSize()} opacity-70 mt-0.5 ${getButtonTextClass('primary')} truncate`}>
-            {product.subtext}
+            {displaySubtext}
           </span>
         )}
       </div>
