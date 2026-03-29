@@ -22,10 +22,10 @@ export const Sidebar = ({
   isMobilePortrait = false
 }: SidebarProps) => {
   return (
-    <div className={`${isMobilePortrait ? 'w-full h-full' : 'w-80'} bg-white border-l border-slate-200 flex flex-col shadow-2xl z-20 ${isMobilePortrait ? 'border-l-0' : ''}`}>
+    <div className={`${isMobilePortrait ? 'w-full h-full flex flex-col' : 'w-80'} bg-white border-l border-slate-200 flex flex-col shadow-2xl z-20 ${isMobilePortrait ? 'border-l-0' : ''}`}>
       {/* Compact Header - nur für Desktop */}
       {!isMobilePortrait && (
-        <div className="p-4 border-b border-slate-100 bg-slate-900 text-white flex items-center justify-between">
+        <div className="p-4 border-b border-slate-100 bg-slate-900 text-white flex items-center justify-between flex-shrink-0">
           <div className="flex items-center gap-2">
             <ShoppingCart className="w-5 h-5 text-orange-400" />
             <h2 className="text-lg font-black tracking-tight uppercase">Bestellung</h2>
@@ -36,8 +36,8 @@ export const Sidebar = ({
         </div>
       )}
 
-      {/* Order List */}
-      <div className={`${isMobilePortrait ? 'flex-1' : 'flex-1'} overflow-y-auto p-2 space-y-2 bg-slate-50/50`}>
+      {/* Order List - Scrollbarer Bereich */}
+      <div className={`${isMobilePortrait ? 'flex-1 overflow-y-auto' : 'flex-1'} overflow-y-auto p-2 space-y-2 bg-slate-50/50`}>
         <AnimatePresence initial={false}>
           {order.length === 0 ? (
             <div className="h-full flex flex-col items-center justify-center text-slate-300 opacity-40 p-8 text-center">
@@ -51,7 +51,7 @@ export const Sidebar = ({
                 initial={{ opacity: 0, x: 10 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -10 }}
-                className="flex items-center justify-between p-2 bg-white rounded-xl border border-slate-200 shadow-sm"
+                className="flex items-center justify-between p-2 bg-white rounded-xl border border-slate-200 shadow-sm flex-shrink-0"
               >
                 <div className="flex-1 min-w-0 pr-2">
                   <div className="font-bold text-slate-800 truncate text-sm">{item.name}</div>
@@ -60,7 +60,7 @@ export const Sidebar = ({
                   </div>
                 </div>
                 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 flex-shrink-0">
                   <div className="flex items-center bg-slate-100 rounded-lg overflow-hidden border border-slate-200">
                     <button 
                       onClick={() => onUpdateQuantity(item.orderId, -1)}
@@ -90,7 +90,7 @@ export const Sidebar = ({
         </AnimatePresence>
       </div>
 
-      {/* Footer Actions */}
+      {/* Footer Actions - Immer sichtbar */}
       <div className={`${isMobilePortrait ? 'flex-shrink-0' : ''} p-4 bg-white border-t border-slate-200 space-y-3`}>
         <div className="flex justify-between items-center px-1">
           <span className="text-slate-400 font-black uppercase text-[10px] tracking-widest">Summe</span>

@@ -5,7 +5,7 @@ export const MAIN_MENU_ROWS: Product[][] = [
   [
     { id: 'w1', name: 'Bubble Waffle', price: 8, color: 'bg-orange-100 border-orange-200 text-orange-900' },
     { id: 'w2', name: 'Belgian Waffle', price: 8, color: 'bg-orange-100 border-orange-200 text-orange-900' },
-    { id: 'i1', name: 'Softeis', price: 4, subtext: '(Tüte, Becher)', color: 'bg-orange-100 border-orange-200 text-orange-900' },
+    { id: 'i1', name: 'Softeis', price: 4, color: 'bg-orange-100 border-orange-200 text-orange-900' },
   ],
   // Row 2: Green
   [

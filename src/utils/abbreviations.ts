@@ -11,30 +11,30 @@ export interface ProductAbbreviation {
 export const MAIN_MENU_ABBREVIATIONS: Record<string, ProductAbbreviation> = {
   'w1': { fullName: 'Bubble Waffle', abbreviation: 'BUBBLE', maxLength: 8 },
   'w2': { fullName: 'Belgian Waffle', abbreviation: 'BELGIAN', maxLength: 8 },
-  'i1': { fullName: 'Softeis', abbreviation: 'SOFT', maxLength: 8 },
+  'i1': { fullName: 'Softeis', abbreviation: 'EIS', maxLength: 8 },
   'cat_extra': { fullName: 'Extras', abbreviation: 'EXTRAS', maxLength: 8 },
   'cat_süsses': { fullName: 'Süsses', abbreviation: 'SÜSSES', maxLength: 8 },
   'cat_kaffee': { fullName: 'Kaffee', abbreviation: 'KAFFEE', maxLength: 8 },
   'cat_drinks': { fullName: 'Drinks', abbreviation: 'DRINKS', maxLength: 8 },
-  'cat_af_drinks': { fullName: 'AF Drinks', abbreviation: 'AF DR', maxLength: 8 },
+  'cat_af_drinks': { fullName: 'AF Drinks', abbreviation: 'AF', maxLength: 8 },
 };
 
 // Kategorie: Extras
 export const EXTRAS_ABBREVIATIONS: Record<string, ProductAbbreviation> = {
   'ex2': { fullName: 'Schlagobers', abbreviation: 'SCHLAG', maxLength: 8 },
-  'ex6': { fullName: 'Portion Eis', abbreviation: 'EIS', maxLength: 8 },
+  'ex6': { fullName: 'Portion Eis', abbreviation: 'PORT.EIS', maxLength: 8 },
   'ex1': { fullName: 'Obst', abbreviation: 'OBST', maxLength: 8 },
   'ex3': { fullName: 'Oreo', abbreviation: 'OREO', maxLength: 8 },
-  'ex4': { fullName: 'Smarties', abbreviation: 'SMART', maxLength: 8 },
-  'ex5': { fullName: 'Krokant', abbreviation: 'KROK', maxLength: 8 },
+  'ex4': { fullName: 'Smarties', abbreviation: 'SMARTIES', maxLength: 8 },
+  'ex5': { fullName: 'Krokant', abbreviation: 'KROKANT', maxLength: 8 },
 };
 
 // Kategorie: Süßes
 export const SÜSSES_ABBREVIATIONS: Record<string, ProductAbbreviation> = {
-  's1': { fullName: 'Kuchen', abbreviation: 'KUCHEN', maxLength: 8 },
-  's2': { fullName: 'Vegan Cookies', abbreviation: 'V-COOK', maxLength: 8 },
+  's1': { fullName: 'Kuchen', abbreviation: 'KÜCHEN', maxLength: 8 },
+  's2': { fullName: 'Vegan Cookies', abbreviation: 'COOKIE', maxLength: 8 },
   's3': { fullName: 'Protein Balls', abbreviation: 'PROTEIN', maxLength: 8 },
-  's4': { fullName: 'Mandorle', abbreviation: 'MANDOR', maxLength: 8 },
+  's4': { fullName: 'Mandorle', abbreviation: 'MANDORLE', maxLength: 8 },
 };
 
 // Kategorie: Kaffee

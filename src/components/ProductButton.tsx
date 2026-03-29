@@ -3,7 +3,7 @@ import { ChevronRight } from 'lucide-react';
 import { Product } from '../types';
 import { getButtonTextClass } from '../styles/tokens';
 import { useMobileDetection } from '../hooks/useMobileDetection';
-import { getAbbreviation } from '../utils/abbreviations';
+import { getButtonText } from '../utils/buttonTexts';
 
 interface ProductButtonProps {
   product: Product;
@@ -32,10 +32,11 @@ export const ProductButton = ({ product, onClick }: ProductButtonProps) => {
     return 'text-lg'; // Desktop: groß
   };
 
-  // Abkürzung für Mobile
-  const displayName = isMobile && isPortrait ? getAbbreviation(product.id, product.name, true) : product.name;
-  const displaySubtext = isMobile && isPortrait && product.subtext ? 
-    getAbbreviation(`${product.id}_sub`, product.subtext, true) : product.subtext;
+  // Zweizeiliges Text-System für Mobile & Tablet
+  const isMobileOrTablet = isMobile;
+  const buttonText = getButtonText(product.id, isMobileOrTablet);
+  const displayName = isMobileOrTablet ? buttonText.line1 : buttonText.fullName;
+  const displaySubtext = isMobileOrTablet ? buttonText.line2 : product.subtext;
 
   return (
     <motion.button
