@@ -1,11 +1,28 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
-    <script type="module" crossorigin src="/foodtruck-kassasystem-react/assets/index-Bks7w57B.js"></script>
-    <link rel="stylesheet" crossorigin href="/foodtruck-kassasystem-react/assets/index-ClM_lVjZ.css">
+    <meta name="color-scheme" content="light only" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>FoodTruck POS System</title>
+    <style>
+      /* Dark Mode Prevention */
+      :root {
+        color-scheme: light only;
+      }
+      html, body {
+        color-scheme: light only;
+        background-color: #f8fafc !important;
+        color: #0f172a !important;
+      }
+      /* Force light mode for all elements */
+      * {
+        color-scheme: light only;
+      }
+    </style>
+    <script type="module" crossorigin src="/foodtruck-kassasystem-react/assets/index-CviJeICF.js"></script>
+    <link rel="stylesheet" crossorigin href="/foodtruck-kassasystem-react/assets/index-B2IMrVXf.css">
   </head>
   <body>
     <div id="root"></div>
