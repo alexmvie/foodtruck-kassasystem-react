@@ -114,21 +114,22 @@ export default function App() {
                     <ArrowLeft className="w-5 h-5" />
                   </button>
                 )}
-                <h1 className="text-lg font-black tracking-tighter uppercase">
-                  {view === 'HOME' ? 'Administration' : view === 'CATEGORY' ? activeCategory?.replace('cat_', '').toUpperCase() : 'FoodTruck POS v1.0.1'}
+                <h1 className="text-lg font-black tracking-tighter uppercase flex items-center gap-2">
+                  {view === 'HOME' ? 'Administration' : view === 'CATEGORY' ? activeCategory?.replace('cat_', '').toUpperCase() : 'FoodTruck POS'}
+                  <span className="text-[10px] font-normal text-slate-400 tracking-normal">v1.0.2</span>
                 </h1>
               </div>
               <div className="flex items-center gap-2">
                 <button 
                   onClick={() => setIsProductsMinimized(!isProductsMinimized)}
-                  className="p-2 bg-slate-100 text-slate-600 rounded-lg transition-all hover:bg-slate-200"
+                  className="p-2 bg-black text-white rounded-lg transition-all hover:bg-slate-800 shadow-lg"
                 >
                   {isProductsMinimized ? <Maximize2 className="w-4 h-4" /> : <Minimize2 className="w-4 h-4" />}
                 </button>
                 <button 
                   onClick={() => setView(view === 'HOME' ? 'POS' : 'HOME')}
                   className={`p-2 rounded-lg transition-all flex items-center gap-1 font-bold uppercase text-xs tracking-widest ${
-                    view === 'HOME' ? 'bg-orange-500 text-white shadow-lg' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                    view === 'HOME' ? 'bg-orange-500 text-white shadow-lg' : 'bg-black text-white hover:bg-slate-800 shadow-lg'
                   }`}
                 >
                   <Home className="w-4 h-4" />
@@ -186,7 +187,7 @@ export default function App() {
               </div>
               <button 
                 onClick={() => setIsOrderMinimized(!isOrderMinimized)}
-                className="p-2 bg-slate-100 text-slate-600 rounded-lg transition-all hover:bg-slate-200"
+                className="p-2 bg-black text-white rounded-lg transition-all hover:bg-slate-800 shadow-lg"
               >
                 {isOrderMinimized ? <Maximize2 className="w-4 h-4" /> : <Minimize2 className="w-4 h-4" />}
               </button>
@@ -222,8 +223,9 @@ export default function App() {
                     <ArrowLeft className="w-7 h-7" />
                   </button>
                 )}
-                <h1 className="text-xl font-black tracking-tighter uppercase">
-                  {view === 'HOME' ? 'Administration' : view === 'CATEGORY' ? activeCategory?.replace('cat_', '').toUpperCase() : 'FoodTruck POS v1.0.1'}
+                <h1 className="text-xl font-black tracking-tighter uppercase flex items-center gap-2">
+                  {view === 'HOME' ? 'Administration' : view === 'CATEGORY' ? activeCategory?.replace('cat_', '').toUpperCase() : 'FoodTruck POS'}
+                  <span className="text-[10px] font-normal text-slate-400 tracking-normal">v1.0.2</span>
                 </h1>
               </div>
               <button 

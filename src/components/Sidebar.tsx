@@ -22,7 +22,7 @@ export const Sidebar = ({
   isMobilePortrait = false
 }: SidebarProps) => {
   return (
-    <div className={`${isMobilePortrait ? 'w-full' : 'w-80'} bg-white border-l border-slate-200 flex flex-col shadow-2xl z-20 ${isMobilePortrait ? 'border-l-0' : ''}`}>
+    <div className={`${isMobilePortrait ? 'w-full h-full' : 'w-80'} bg-white border-l border-slate-200 flex flex-col shadow-2xl z-20 ${isMobilePortrait ? 'border-l-0' : ''}`}>
       {/* Compact Header - nur für Desktop */}
       {!isMobilePortrait && (
         <div className="p-4 border-b border-slate-100 bg-slate-900 text-white flex items-center justify-between">
@@ -37,7 +37,7 @@ export const Sidebar = ({
       )}
 
       {/* Order List */}
-      <div className="flex-1 overflow-y-auto p-2 space-y-2 bg-slate-50/50">
+      <div className={`${isMobilePortrait ? 'flex-1' : 'flex-1'} overflow-y-auto p-2 space-y-2 bg-slate-50/50`}>
         <AnimatePresence initial={false}>
           {order.length === 0 ? (
             <div className="h-full flex flex-col items-center justify-center text-slate-300 opacity-40 p-8 text-center">
@@ -79,7 +79,7 @@ export const Sidebar = ({
                   
                   <button 
                     onClick={() => onRemoveFromOrder(item.orderId)}
-                    className="p-1.5 text-slate-300 hover:text-red-500 transition-colors"
+                    className="p-1.5 bg-black text-white rounded-lg transition-colors hover:bg-slate-800"
                   >
                     <Trash2 className="w-4 h-4" />
                   </button>
@@ -91,7 +91,7 @@ export const Sidebar = ({
       </div>
 
       {/* Footer Actions */}
-      <div className="p-4 bg-white border-t border-slate-200 space-y-3">
+      <div className={`${isMobilePortrait ? 'flex-shrink-0' : ''} p-4 bg-white border-t border-slate-200 space-y-3`}>
         <div className="flex justify-between items-center px-1">
           <span className="text-slate-400 font-black uppercase text-[10px] tracking-widest">Summe</span>
           <span className="text-3xl font-black text-slate-900">{total.toFixed(2)} €</span>
