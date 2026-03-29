@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { ChevronRight } from 'lucide-react';
 import { Product } from '../types';
+import { getButtonTextClass } from '../styles/tokens';
 
 interface ProductButtonProps {
   product: Product;
@@ -22,9 +23,9 @@ export const ProductButton = ({ product, onClick }: ProductButtonProps) => {
     >
       {/* Obere Bereich: Name und Subtext */}
       <div className="flex flex-col items-center text-center flex-1">
-        <span className="text-sm font-black leading-tight uppercase">{product.name}</span>
+        <span className={`text-sm leading-tight ${getButtonTextClass('primary')}`}>{product.name}</span>
         {product.subtext && (
-          <span className="text-[9px] opacity-70 mt-0.5 uppercase tracking-wider font-black">
+          <span className={`text-[9px] opacity-70 mt-0.5 ${getButtonTextClass('primary')}`}>
             {product.subtext}
           </span>
         )}
@@ -33,7 +34,7 @@ export const ProductButton = ({ product, onClick }: ProductButtonProps) => {
       {/* Untere Bereich: Preis oder Kategorie-Info */}
       <div className="flex justify-center mt-auto">
         {!product.isCategory && (
-          <span className="text-lg font-black">{product.price.toFixed(2)} €</span>
+          <span className={`text-lg ${getButtonTextClass('primary')}`}>{product.price.toFixed(2)} €</span>
         )}
         {product.isCategory && (
           <div className="bg-black/10 px-2 py-1 rounded-lg text-[9px] font-black uppercase tracking-widest flex items-center gap-0.5">
