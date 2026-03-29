@@ -7,24 +7,38 @@
     <meta name="theme-color" content="#ffffff" />
     <title>FoodTruck POS System</title>
     <style>
-      /* Dark Mode Prevention */
+      /* Dark Mode Prevention - MAXIMUM STRENGTH */
       :root {
-        color-scheme: light only;
+        color-scheme: light only !important;
       }
       html, body {
-        color-scheme: light only;
+        color-scheme: light only !important;
         background-color: #f8fafc !important;
         color: #0f172a !important;
+        forced-color-adjust: none !important;
       }
-      /* Force light mode for all elements */
+      /* Force light mode for ALL elements */
       * {
-        color-scheme: light only;
+        color-scheme: light only !important;
+        forced-color-adjust: none !important;
+      }
+      /* Override system dark mode */
+      @media (prefers-color-scheme: dark) {
+        html, body, * {
+          background-color: #f8fafc !important;
+          color: #0f172a !important;
+          color-scheme: light only !important;
+        }
+      }
+      /* Prevent any color scheme changes */
+      *[data-theme] {
+        color-scheme: light only !important;
       }
     </style>
-    <script type="module" crossorigin src="/foodtruck-kassasystem-react/assets/index-C23fYCTC.js"></script>
-    <link rel="stylesheet" crossorigin href="/foodtruck-kassasystem-react/assets/index-B2IMrVXf.css">
+    <script type="module" crossorigin src="/foodtruck-kassasystem-react/assets/index-BEec1U7p.js"></script>
+    <link rel="stylesheet" crossorigin href="/foodtruck-kassasystem-react/assets/index-DnTPnmNI.css">
   </head>
-  <body>
+  <body data-theme="light">
     <div id="root"></div>
   </body>
 </html>
