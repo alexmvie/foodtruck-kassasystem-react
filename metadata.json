@@ -1,0 +1,5 @@
+{
+  "name": "FoodTruck POS",
+  "description": "A professional Orderman-like point of sale application for food trucks, optimized for tablet use.",
+  "requestFramePermissions": []
+}
