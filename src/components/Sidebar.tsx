@@ -9,6 +9,7 @@ interface SidebarProps {
   onRemoveFromOrder: (orderId: string) => void;
   onClearOrder: () => void;
   onPaymentClick: () => void;
+  isMobilePortrait?: boolean;
 }
 
 export const Sidebar = ({ 
@@ -17,20 +18,23 @@ export const Sidebar = ({
   onUpdateQuantity, 
   onRemoveFromOrder, 
   onClearOrder, 
-  onPaymentClick 
+  onPaymentClick,
+  isMobilePortrait = false
 }: SidebarProps) => {
   return (
-    <div className="w-80 bg-white border-l border-slate-200 flex flex-col shadow-2xl z-20">
-      {/* Compact Header */}
-      <div className="p-4 border-b border-slate-100 bg-slate-900 text-white flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <ShoppingCart className="w-5 h-5 text-orange-400" />
-          <h2 className="text-lg font-black tracking-tight uppercase">Bestellung</h2>
+    <div className={`${isMobilePortrait ? 'w-full' : 'w-80'} bg-white border-l border-slate-200 flex flex-col shadow-2xl z-20 ${isMobilePortrait ? 'border-l-0' : ''}`}>
+      {/* Compact Header - nur für Desktop */}
+      {!isMobilePortrait && (
+        <div className="p-4 border-b border-slate-100 bg-slate-900 text-white flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <ShoppingCart className="w-5 h-5 text-orange-400" />
+            <h2 className="text-lg font-black tracking-tight uppercase">Bestellung</h2>
+          </div>
+          <div className="bg-orange-500 text-white px-2 py-0.5 rounded-full text-[10px] font-black">
+            {order.reduce((a, b) => a + b.quantity, 0)} POS
+          </div>
         </div>
-        <div className="bg-orange-500 text-white px-2 py-0.5 rounded-full text-[10px] font-black">
-          {order.reduce((a, b) => a + b.quantity, 0)} POS
-        </div>
-      </div>
+      )}
 
       {/* Order List */}
       <div className="flex-1 overflow-y-auto p-2 space-y-2 bg-slate-50/50">
