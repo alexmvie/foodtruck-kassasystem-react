@@ -36,8 +36,15 @@ export const Sidebar = ({
         </div>
       )}
 
-      {/* Order List - Scrollbarer Bereich */}
-      <div className={`${isMobilePortrait ? 'flex-1 overflow-y-auto' : 'flex-1'} overflow-y-auto p-2 space-y-2 bg-slate-50/50`}>
+      {/* Order List - Scrollbarer Bereich mit fester Höhe für Mobile */}
+      <div 
+        className={`${isMobilePortrait ? 'overflow-y-auto' : 'flex-1 overflow-y-auto'} p-2 space-y-2 bg-slate-50/50`}
+        style={isMobilePortrait ? { 
+          height: 'calc(100vh - 16rem)', // Header (4rem) + Footer (12rem)
+          maxHeight: 'calc(100vh - 16rem)',
+          flex: '1'
+        } : {}}
+      >
         <AnimatePresence initial={false}>
           {order.length === 0 ? (
             <div className="h-full flex flex-col items-center justify-center text-slate-300 opacity-40 p-8 text-center">
@@ -90,8 +97,8 @@ export const Sidebar = ({
         </AnimatePresence>
       </div>
 
-      {/* Footer Actions - Immer sichtbar */}
-      <div className={`${isMobilePortrait ? 'flex-shrink-0' : ''} p-4 bg-white border-t border-slate-200 space-y-3`}>
+      {/* Footer Actions - Feste Höhe für Mobile */}
+      <div className={`${isMobilePortrait ? 'h-48 flex-shrink-0' : ''} p-4 bg-white border-t border-slate-200 space-y-3`}>
         <div className="flex justify-between items-center px-1">
           <span className="text-slate-400 font-black uppercase text-[10px] tracking-widest">Summe</span>
           <span className="text-3xl font-black text-slate-900">{total.toFixed(2)} €</span>

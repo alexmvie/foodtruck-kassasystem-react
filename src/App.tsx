@@ -52,6 +52,37 @@ export default function App() {
     return order.reduce((sum, item) => sum + item.price * item.quantity, 0);
   }, [order]);
 
+  // DUMMY: Füge viele Test-Produkte hinzu für schnellere Tests
+  useEffect(() => {
+    if (process.env.NODE_ENV === 'development') {
+      const dummyProducts = [
+        { id: 'dummy1', name: 'Bubble Waffle', price: 8.00, quantity: 2 },
+        { id: 'dummy2', name: 'Belgian Waffle', price: 8.00, quantity: 1 },
+        { id: 'dummy3', name: 'Softeis', price: 4.00, quantity: 3 },
+        { id: 'dummy4', name: 'Schlagobers', price: 1.00, quantity: 2 },
+        { id: 'dummy5', name: 'Portion Eis', price: 2.00, quantity: 1 },
+        { id: 'dummy6', name: 'Obst', price: 1.00, quantity: 1 },
+        { id: 'dummy7', name: 'Oreo', price: 1.00, quantity: 2 },
+        { id: 'dummy8', name: 'Smarties', price: 1.00, quantity: 1 },
+        { id: 'dummy9', name: 'Krokant', price: 1.00, quantity: 1 },
+        { id: 'dummy10', name: 'Espresso', price: 3.00, quantity: 2 },
+        { id: 'dummy11', name: 'Doppelter Espresso', price: 5.50, quantity: 1 },
+        { id: 'dummy12', name: 'Cappuccino', price: 4.50, quantity: 1 },
+        { id: 'dummy13', name: 'Matcha', price: 6.50, quantity: 1 },
+        { id: 'dummy14', name: 'Chai', price: 6.50, quantity: 1 },
+        { id: 'dummy15', name: 'Aperol', price: 6.50, quantity: 1 },
+        { id: 'dummy16', name: 'Limoncello', price: 6.50, quantity: 1 },
+        { id: 'dummy17', name: 'Hugo', price: 6.50, quantity: 1 },
+        { id: 'dummy18', name: 'Frizzante', price: 5.00, quantity: 1 },
+        { id: 'dummy19', name: 'Spritzer', price: 3.00, quantity: 1 },
+        { id: 'dummy20', name: 'Glühwein', price: 8.50, quantity: 1 },
+      ];
+
+      // Entferne DUMMY: Diese Zeile auskommentieren um Dummy-Daten zu deaktivieren
+      // setOrder(dummyProducts.map((p, index) => ({ ...p, orderId: `dummy_${index}` })));
+    }
+  }, []);
+
   const goBack = () => {
     setView('POS');
     setActiveCategory(null);
