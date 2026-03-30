@@ -21,9 +21,9 @@ export const ProductButton = ({ product, onClick }: ProductButtonProps) => {
   };
   
   const getSubtextSize = () => {
-    if (isMobile && isPortrait) return 'text-[8px]'; // Mobile Portrait: winzig
-    if (isMobile) return 'text-[9px]'; // Mobile Landscape: sehr klein
-    return 'text-[9px]'; // Desktop: Standard
+    if (isMobile && isPortrait) return 'text-xs'; // Mobile Portrait: wie erste Zeile
+    if (isMobile) return 'text-sm'; // Mobile Landscape: wie erste Zeile
+    return 'text-sm'; // Desktop: wie erste Zeile
   };
   
   const getPriceSize = () => {
@@ -35,8 +35,10 @@ export const ProductButton = ({ product, onClick }: ProductButtonProps) => {
   // Zweizeiliges Text-System für Mobile & Tablet
   const isMobileOrTablet = isMobile;
   const buttonText = getButtonText(product.id, isMobileOrTablet);
-  const displayName = isMobileOrTablet ? buttonText.line1 : buttonText.fullName;
-  const displaySubtext = isMobileOrTablet ? buttonText.line2 : product.subtext;
+  //const displayName = isMobileOrTablet ? buttonText.line1 : buttonText.fullName;
+  //const displaySubtext = isMobileOrTablet ? buttonText.line2 : product.subtext;
+  const displayName = buttonText.line1 ;
+  const displaySubtext = buttonText.line2 ;
 
   return (
     <motion.button
@@ -51,24 +53,24 @@ export const ProductButton = ({ product, onClick }: ProductButtonProps) => {
         overflow-hidden
       `}
     >
-      {/* Obere Bereich: Name und Subtext */}
-      <div className="flex flex-col items-center text-center flex-1 min-w-0">
-        <span className={`${getTextSize()} leading-tight ${getButtonTextClass('primary')} truncate`}>
+      {/* Product Name - Immer schwarz */}
+      <div className="flex flex-col items-center justify-center text-center flex-1">
+        <div className={`font-black tracking-tightest uppercase leading-tight text-black ${getTextSize()}`}>
           {displayName}
-        </span>
+        </div>
         {displaySubtext && (
-          <span className={`${getSubtextSize()} opacity-70 mt-0.5 ${getButtonTextClass('primary')} truncate`}>
+          <div className={`font-black tracking-tightest uppercase leading-tight text-black ${getSubtextSize()}`}>
             {displaySubtext}
-          </span>
+          </div>
         )}
       </div>
-      
+
       {/* Untere Bereich: Preis oder Kategorie-Info */}
       <div className="flex justify-center mt-auto">
         {!product.isCategory && (
-          <span className={`${getPriceSize()} ${getButtonTextClass('primary')}`}>
+          <div className={`font-black tracking-tightest text-black ${getPriceSize()}`}>
             {product.price.toFixed(2)} €
-          </span>
+          </div>
         )}
         {product.isCategory && (
           <div className="bg-black/10 px-2 py-1 rounded-lg text-[8px] font-black uppercase tracking-widest flex items-center gap-0.5">

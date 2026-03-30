@@ -1,5 +1,5 @@
-// Zentrale Text-Verwaltung für das Boniersystem
-// Diese Datei enthält alle Produkt-Texte mit zweizeiliger Aufteilung für Mobile & Tablet
+// Original Buttontexte aus Git-Version v1.0.4
+// Zweizeiliges Text-System für Mobile & Tablet
 
 export interface ButtonText {
   line1: string;
@@ -7,7 +7,7 @@ export interface ButtonText {
   fullName: string; // Für Desktop-Anzeige
 }
 
-// Hauptmenü-Produkte
+// Hauptmenü-Produkte (Originaltexte)
 export const MAIN_MENU_TEXTS: Record<string, ButtonText> = {
   'w1': {
     line1: 'BUBBLE',
@@ -48,10 +48,10 @@ export const MAIN_MENU_TEXTS: Record<string, ButtonText> = {
     line1: 'AF',
     line2: 'DRINKS',
     fullName: 'AF Drinks'
-  },
+  }
 };
 
-// Kategorie: Extras
+// Kategorie: Extras (Originaltexte)
 export const EXTRAS_TEXTS: Record<string, ButtonText> = {
   'ex2': {
     line1: 'SCHLAG',
@@ -64,32 +64,32 @@ export const EXTRAS_TEXTS: Record<string, ButtonText> = {
     fullName: 'Portion Eis'
   },
   'ex1': {
-    line1: 'FRISCHES',
-    line2: 'OBST',
+    line1: 'OBST',
+    line2: '',
     fullName: 'Obst'
   },
   'ex3': {
     line1: 'OREO',
-    line2: 'KEKSE',
+    line2: '',
     fullName: 'Oreo'
   },
   'ex4': {
     line1: 'SMARTIES',
-    line2: 'DRAGEE',
+    line2: '',
     fullName: 'Smarties'
   },
   'ex5': {
     line1: 'KROKANT',
-    line2: 'STÜCKE',
+    line2: '',
     fullName: 'Krokant'
-  },
+  }
 };
 
-// Kategorie: Süßes
+// Kategorie: Süßes (Originaltexte)
 export const SÜSSES_TEXTS: Record<string, ButtonText> = {
   's1': {
-    line1: 'FRISCHER',
-    line2: 'KUCHEN',
+    line1: 'KUCHEN',
+    line2: '',
     fullName: 'Kuchen'
   },
   's2': {
@@ -103,17 +103,17 @@ export const SÜSSES_TEXTS: Record<string, ButtonText> = {
     fullName: 'Protein Balls'
   },
   's4': {
-    line1: 'MANDEL',
-    line2: 'KROKANT',
+    line1: 'MANDORLE',
+    line2: '',
     fullName: 'Mandorle'
-  },
+  }
 };
 
-// Kategorie: Kaffee
+// Kategorie: Kaffee (Originaltexte)
 export const KAFFEE_TEXTS: Record<string, ButtonText> = {
   'c1': {
     line1: 'ESPRESSO',
-    line2: 'KLASSIK',
+    line2: '',
     fullName: 'Espresso'
   },
   'c2': {
@@ -123,32 +123,32 @@ export const KAFFEE_TEXTS: Record<string, ButtonText> = {
   },
   'c3': {
     line1: 'VERLÄNGERT',
-    line2: 'MIT WASSER',
+    line2: '',
     fullName: 'Verlängerter'
   },
   'c4': {
     line1: 'CAPPUCCINO',
-    line2: 'MIT MILCH',
+    line2: '',
     fullName: 'Cappuccino'
   },
   'c6': {
     line1: 'MATCHA',
-    line2: 'TEE',
+    line2: '',
     fullName: 'Matcha'
   },
   'c7': {
     line1: 'CHAI',
-    line2: 'LATTE',
+    line2: '',
     fullName: 'Chai'
   },
   'c5': {
-    line1: 'HEISSE',
-    line2: 'SCHOKOLADE',
+    line1: 'KAKAO',
+    line2: '',
     fullName: 'Kakao'
   },
   'c8': {
-    line1: 'HAFER',
-    line2: 'MILCH',
+    line1: 'HAFERMILCH',
+    line2: '',
     fullName: 'Hafermilch'
   },
   'c9': {
@@ -157,88 +157,88 @@ export const KAFFEE_TEXTS: Record<string, ButtonText> = {
     fullName: 'Laktofreie Milch'
   },
   'c10': {
-    line1: 'KOFFEIN',
-    line2: 'FREI',
+    line1: 'KOFFEINFREI',
+    line2: '',
     fullName: 'Koffeeinfrei'
-  },
+  }
 };
 
-// Kategorie: Drinks
+// Kategorie: Drinks (Originaltexte)
 export const DRINKS_TEXTS: Record<string, ButtonText> = {
   'a1': {
     line1: 'APEROL',
-    line2: 'SPRITZ',
+    line2: '',
     fullName: 'Aperol'
   },
   'a2': {
     line1: 'LIMONCELLO',
-    line2: 'DIGESTIF',
+    line2: '',
     fullName: 'Limoncello'
   },
   'a3': {
     line1: 'HUGO',
-    line2: 'SPRITZ',
+    line2: '',
     fullName: 'Hugo'
   },
   'a4': {
     line1: 'FRIZZANTE',
-    line2: 'WASSER',
+    line2: '',
     fullName: 'Frizzante'
   },
   'a5': {
-    line1: 'WEISSWEIN',
-    line2: 'SPRITZER',
+    line1: 'SPRITZER',
+    line2: '',
     fullName: 'Spritzer'
   },
   'a6': {
     line1: 'GLÜHWEIN',
-    line2: 'HEISS',
+    line2: '',
     fullName: 'Glühwein'
   },
   'a7': {
-    line1: 'GLÜHWEIN',
-    line2: 'MIT GIN',
+    line1: 'GLÜH',
+    line2: 'GIN',
     fullName: 'Glüh Gin'
   },
   'a8': {
     line1: 'HOT',
     line2: 'APEROL',
     fullName: 'Hot Aperol'
-  },
+  }
 };
 
-// Kategorie: AF Drinks
+// Kategorie: AF Drinks (Originaltexte)
 export const AF_DRINKS_TEXTS: Record<string, ButtonText> = {
   'd1': {
-    line1: 'STILL',
-    line2: 'MINERAL',
+    line1: 'MINERAL',
+    line2: '',
     fullName: 'Mineral'
   },
   'd2': {
-    line1: 'COCA',
-    line2: 'COLA',
+    line1: 'COLA',
+    line2: '',
     fullName: 'Cola'
   },
   'd3': {
     line1: 'APFELSAFT',
-    line2: 'GESPRITZT',
+    line2: 'GESP.',
     fullName: 'Apfelsaft gesprizt'
   },
   'd4': {
     line1: 'EISTEE',
-    line2: 'FRUCHTIG',
+    line2: '',
     fullName: 'Eistee'
   },
   'd5': {
     line1: 'LIMONADE',
-    line2: 'FRISCH',
+    line2: '',
     fullName: 'Limonade'
   },
   'd6': {
-    line1: 'FRUCHT',
-    line2: 'SMOOTHIE',
+    line1: 'SMOOTHIE',
+    line2: '',
     fullName: 'Smoothie'
-  },
+  }
 };
 
 // Alle Texte zusammenfassen
@@ -251,14 +251,14 @@ export const ALL_BUTTON_TEXTS = {
   ...AF_DRINKS_TEXTS,
 };
 
-// Helper Funktion um Button-Text zu bekommen
-export const getButtonText = (productId: string, isMobileOrTablet: boolean = false): ButtonText => {
+// Helper Funktion um Buttontext zu bekommen
+export const getButtonText = (productId: string, isMobileOrTablet: boolean = true): ButtonText => {
   const buttonText = ALL_BUTTON_TEXTS[productId];
   
   if (!buttonText) {
-    // Fallback für nicht definierte Produkte
+    // Fallback wenn kein Text gefunden wurde
     return {
-      line1: productId,
+      line1: productId.toUpperCase(),
       line2: '',
       fullName: productId
     };
