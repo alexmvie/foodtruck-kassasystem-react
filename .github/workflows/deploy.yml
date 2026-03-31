@@ -9,32 +9,18 @@ on:
 jobs:
    build-and-deploy:
       runs-on: ubuntu-latest
+      container:
+         image: node:20
 
       steps:
          - name: Checkout
            uses: actions/checkout@v4
 
-         - name: Setup Node.js
-           uses: actions/setup-node@v4
-           with:
-              node-version: '18'
-              cache: 'npm'
-
-         - name: Clear npm cache
-           run: npm cache clean --force
-
-         - name: Remove lock file and node_modules
-           run: rm -rf package-lock.json node_modules
-
          - name: Install dependencies
            run: npm install
-           env:
-              TAILWIND_SKIP_OXIDE: true
 
          - name: Build
            run: npm run build
-           env:
-              TAILWIND_SKIP_OXIDE: true
 
          - name: Deploy to GitHub Pages
            uses: peaceiris/actions-gh-pages@v3
