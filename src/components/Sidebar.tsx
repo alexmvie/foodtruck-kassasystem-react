@@ -54,7 +54,7 @@ export const Sidebar = ({
                   <ShoppingCart className='w-5 h-5 text-orange-400' />
                   <div>
                      <h2 className='text-lg font-black tracking-tight uppercase leading-none'>Bestellung</h2>
-                     <span className='text-[10px] font-bold text-slate-500'>#{orderNumber}</span>
+                     <span className='text-lg font-bold text-slate-500'>#{orderNumber}</span>
                   </div>
                </div>
                <div className='bg-orange-500 text-white px-2 py-0.5 rounded-full text-[10px] font-black'>
