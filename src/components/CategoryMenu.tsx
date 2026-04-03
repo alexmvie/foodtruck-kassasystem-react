@@ -1,18 +1,15 @@
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowLeft } from 'lucide-react';
 import { Product } from '../types';
 import { ProductButton } from './ProductButton';
-import { CATEGORY_ITEMS_ROWS } from '../constants';
 
 interface CategoryMenuProps {
   categoryId: string;
+  rows: Product[][];
   onBack: () => void;
   onProductClick: (product: Product) => void;
 }
 
-export const CategoryMenu = ({ categoryId, onBack, onProductClick }: CategoryMenuProps) => {
-  const rows = CATEGORY_ITEMS_ROWS[categoryId] || [];
-
+export const CategoryMenu = ({ rows, onBack, onProductClick }: CategoryMenuProps) => {
   return (
     <motion.div 
       className="flex flex-col gap-6 h-full overflow-hidden"
@@ -30,11 +27,12 @@ export const CategoryMenu = ({ categoryId, onBack, onProductClick }: CategoryMen
           {rows.map((row, rowIndex) => (
             <div key={rowIndex} className="grid grid-cols-4 gap-3 content-start">
               {row.map((product) => (
-                <ProductButton 
-                  key={product.id} 
-                  product={product} 
-                  onClick={onProductClick} 
-                />
+                <div key={product.id}>
+                  <ProductButton 
+                    product={product} 
+                    onClick={onProductClick} 
+                  />
+                </div>
               ))}
             </div>
           ))}

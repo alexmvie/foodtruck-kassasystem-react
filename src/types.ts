@@ -6,11 +6,14 @@ export interface Product {
   subtext?: string;
   color?: string;
   isCategory?: boolean;
+  menuCategoryId?: string;
+  hidePrice?: boolean;
 }
 
 export interface OrderItem extends Product {
   quantity: number;
   orderId: string;
+  parentOrderId?: string;
 }
 
 export type ViewState = 'POS' | 'HOME' | 'CATEGORY';

@@ -24,6 +24,8 @@ export const Sidebar = ({
 }: SidebarProps) => {
    const [showStornoModal, setShowStornoModal] = useState(false);
 
+   const topLevelItems = order.filter((item) => !item.parentOrderId);
+
    const handleStornoClick = () => {
       if (order.length > 0) {
          setShowStornoModal(true);
@@ -59,53 +61,101 @@ export const Sidebar = ({
          {/* Order List - Scrollable Middle Section */}
          <div className='flex-1 overflow-y-auto p-2 space-y-2 bg-slate-50/50'>
             <AnimatePresence initial={false}>
-               {order.length === 0 ? (
+               {topLevelItems.length === 0 ? (
                   <div className='h-full flex flex-col items-center justify-center text-slate-300 opacity-40 p-8 text-center'>
                      <ShoppingCart className='w-12 h-12 mb-2' />
                      <p className='text-sm font-bold uppercase tracking-widest'>Warenkorb leer</p>
                   </div>
                ) : (
-                  order.map((item) => (
+                  topLevelItems.map((item) => {
+                     const childItems = order.filter((child) => child.parentOrderId === item.orderId);
+
+                     return (
                      <motion.div
                         key={item.orderId}
                         initial={{ opacity: 0, x: 10 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -10 }}
-                        className='flex items-center justify-between p-2 bg-white rounded-xl border border-slate-200 shadow-sm flex-shrink-0'
+                        className='bg-white rounded-xl border border-slate-200 shadow-sm flex-shrink-0 overflow-hidden'
                      >
-                        <div className='flex-1 min-w-0 pr-2'>
-                           <div className='font-bold text-slate-800 truncate text-sm'>{item.name}</div>
-                           <div className='text-[10px] text-slate-500 font-bold uppercase'>
-                              {(item.price * item.quantity).toFixed(2)} €
+                        <div className='flex items-center justify-between p-2'>
+                           <div className='flex-1 min-w-0 pr-2'>
+                              <div className='font-bold text-slate-800 truncate text-sm'>{item.name}</div>
+                              <div className='text-[10px] text-slate-500 font-bold uppercase'>
+                                 {(item.price * item.quantity).toFixed(2)} €
+                              </div>
+                           </div>
+
+                           <div className='flex items-center gap-2 flex-shrink-0'>
+                              <div className='flex items-center bg-slate-100 rounded-lg overflow-hidden border border-slate-200'>
+                                 <button
+                                    onClick={() => onUpdateQuantity(item.orderId, -1)}
+                                    className='p-1 hover:bg-slate-200 text-slate-600'
+                                 >
+                                    <Minus className='w-3 h-3' />
+                                 </button>
+                                 <span className='w-6 text-center text-xs font-black text-slate-800'>{item.quantity}</span>
+                                 <button
+                                    onClick={() => onUpdateQuantity(item.orderId, 1)}
+                                    className='p-1 hover:bg-slate-200 text-slate-600'
+                                 >
+                                    <Plus className='w-3 h-3' />
+                                 </button>
+                              </div>
+
+                              <button
+                                 onClick={() => onRemoveFromOrder(item.orderId)}
+                                 className='p-1.5 bg-black text-white rounded-lg transition-colors hover:bg-slate-800'
+                              >
+                                 <Trash2 className='w-4 h-4' />
+                              </button>
                            </div>
                         </div>
 
-                        <div className='flex items-center gap-2 flex-shrink-0'>
-                           <div className='flex items-center bg-slate-100 rounded-lg overflow-hidden border border-slate-200'>
-                              <button
-                                 onClick={() => onUpdateQuantity(item.orderId, -1)}
-                                 className='p-1 hover:bg-slate-200 text-slate-600'
-                              >
-                                 <Minus className='w-3 h-3' />
-                              </button>
-                              <span className='w-6 text-center text-xs font-black text-slate-800'>{item.quantity}</span>
-                              <button
-                                 onClick={() => onUpdateQuantity(item.orderId, 1)}
-                                 className='p-1 hover:bg-slate-200 text-slate-600'
-                              >
-                                 <Plus className='w-3 h-3' />
-                              </button>
-                           </div>
+                        {childItems.length > 0 && (
+                           <div className='border-t border-slate-100 bg-slate-50/70 px-2 py-1.5 space-y-1.5'>
+                              {childItems.map((child) => (
+                                 <div key={child.orderId} className='flex items-center justify-between gap-2 rounded-lg border border-slate-200 bg-white px-2 py-1.5'>
+                                    <div className='flex-1 min-w-0 pr-2'>
+                                       <div className='font-bold text-slate-700 truncate text-xs'>
+                                          {child.quantity > 1 ? `${child.quantity} x ${child.name}` : child.name}
+                                       </div>
+                                       <div className='text-[10px] text-slate-400 font-bold uppercase'>
+                                          {(child.price * child.quantity).toFixed(2)} €
+                                       </div>
+                                    </div>
 
-                           <button
-                              onClick={() => onRemoveFromOrder(item.orderId)}
-                              className='p-1.5 bg-black text-white rounded-lg transition-colors hover:bg-slate-800'
-                           >
-                              <Trash2 className='w-4 h-4' />
-                           </button>
-                        </div>
+                                    <div className='flex items-center gap-1 flex-shrink-0'>
+                                       <div className='flex items-center bg-slate-100 rounded-lg overflow-hidden border border-slate-200'>
+                                          <button
+                                             onClick={() => onUpdateQuantity(child.orderId, -1)}
+                                             className='p-1 hover:bg-slate-200 text-slate-600'
+                                          >
+                                             <Minus className='w-3 h-3' />
+                                          </button>
+                                          <span className='w-5 text-center text-[10px] font-black text-slate-800'>{child.quantity}</span>
+                                          <button
+                                             onClick={() => onUpdateQuantity(child.orderId, 1)}
+                                             className='p-1 hover:bg-slate-200 text-slate-600'
+                                          >
+                                             <Plus className='w-3 h-3' />
+                                          </button>
+                                       </div>
+
+                                       <button
+                                          onClick={() => onRemoveFromOrder(child.orderId)}
+                                          className='p-1.5 bg-black text-white rounded-lg transition-colors hover:bg-slate-800'
+                                       >
+                                          <Trash2 className='w-3 h-3' />
+                                       </button>
+                                    </div>
+                                 </div>
+                              ))}
+                           </div>
+                        )}
                      </motion.div>
-                  ))
+                     );
+                  })
                )}
             </AnimatePresence>
          </div>

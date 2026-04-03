@@ -3,9 +3,9 @@ import { Product } from './types';
 export const MAIN_MENU_ROWS: Product[][] = [
   // Row 1: Orange
   [
-    { id: 'w1', name: 'Bubble Waffle', price: 8, color: 'bg-orange-100 border-orange-200 text-orange-900' },
-    { id: 'w2', name: 'Belgian Waffle', price: 8, color: 'bg-orange-100 border-orange-200 text-orange-900' },
-    { id: 'i1', name: 'Softeis', price: 4, color: 'bg-orange-100 border-orange-200 text-orange-900' },
+    { id: 'w1', name: 'Bubble Waffle', price: 8, color: 'bg-orange-100 border-orange-200 text-orange-900', menuCategoryId: 'cat_extra' },
+    { id: 'w2', name: 'Belgian Waffle', price: 8, color: 'bg-orange-100 border-orange-200 text-orange-900', menuCategoryId: 'cat_extra' },
+    { id: 'i1', name: 'Softeis', price: 4, color: 'bg-orange-100 border-orange-200 text-orange-900', menuCategoryId: 'cat_extra' },
   ],
   // Row 2: Green
   [
@@ -43,16 +43,18 @@ export const CATEGORY_ITEMS_ROWS: Record<string, Product[][]> = {
   ],
   'cat_kaffee': [
     [
-      { id: 'c1', name: 'Espresso', price: 3, color: 'bg-pink-50 border-pink-100 text-pink-900' },
-      { id: 'c2', name: 'Doppelter Espresso', price: 5.5, color: 'bg-pink-50 border-pink-100 text-pink-900' },
-      { id: 'c3', name: 'Verlängerter', price: 3, color: 'bg-pink-50 border-pink-100 text-pink-900' },
-      { id: 'c4', name: 'Cappuccino', price: 4.5, color: 'bg-pink-50 border-pink-100 text-pink-900' },
+      { id: 'c1', name: 'Espresso', price: 3, color: 'bg-pink-50 border-pink-100 text-pink-900', menuCategoryId: 'cat_kaffee_extra' },
+      { id: 'c2', name: 'Doppelter Espresso', price: 5.5, color: 'bg-pink-50 border-pink-100 text-pink-900', menuCategoryId: 'cat_kaffee_extra' },
+      { id: 'c3', name: 'Verlängerter', price: 3, color: 'bg-pink-50 border-pink-100 text-pink-900', menuCategoryId: 'cat_kaffee_extra' },
+      { id: 'c4', name: 'Cappuccino', price: 4.5, color: 'bg-pink-50 border-pink-100 text-pink-900', menuCategoryId: 'cat_kaffee_extra' },
     ],
     [
-      { id: 'c6', name: 'Matcha', price: 6.5, color: 'bg-pink-50 border-pink-100 text-pink-900' },
-      { id: 'c7', name: 'Chai', price: 6.5, color: 'bg-pink-50 border-pink-100 text-pink-900' },
-      { id: 'c5', name: 'Kakao', price: 5.5, color: 'bg-pink-50 border-pink-100 text-pink-900' },
-    ],
+      { id: 'c6', name: 'Matcha', price: 6.5, color: 'bg-pink-50 border-pink-100 text-pink-900', menuCategoryId: 'cat_kaffee_extra' },
+      { id: 'c7', name: 'Chai', price: 6.5, color: 'bg-pink-50 border-pink-100 text-pink-900', menuCategoryId: 'cat_kaffee_extra' },
+      { id: 'c5', name: 'Kakao', price: 5.5, color: 'bg-pink-50 border-pink-100 text-pink-900', menuCategoryId: 'cat_kaffee_extra' },
+    ]
+  ],
+  'cat_kaffee_extra': [
     [
       { id: 'c8', name: 'Hafermilch', price: 1, color: 'bg-pink-50 border-pink-100 text-pink-900' },
       { id: 'c9', name: 'Laktofreie Milch', price: 0, color: 'bg-pink-50 border-pink-100 text-pink-900' },

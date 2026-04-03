@@ -5,7 +5,6 @@ import {
    ArrowLeft,
    Minimize2,
    Maximize2,
-   X,
    BarChart3,
    ClipboardList,
    Settings,
@@ -13,27 +12,52 @@ import {
    LogOut,
    History,
 } from 'lucide-react';
-import { ProductButton } from './components/ProductButton';
 import { Sidebar } from './components/Sidebar';
 import { PaymentModal } from './components/PaymentModal';
 import { CategoryMenu } from './components/CategoryMenu';
 import { ProductGrid } from './components/ProductGrid';
 import { useMobileDetection } from './hooks/useMobileDetection';
-import { MAIN_MENU_ROWS, CATEGORY_ITEMS_ROWS } from './constants';
+import { CATEGORY_ITEMS_ROWS } from './constants';
 import { APP_VERSION } from './constants/version';
 import { getButtonText } from './utils/buttonTexts';
 import type { ViewState, OrderItem, Product } from './types';
+
+const MENU_OPTIONS_CATEGORY_ID = 'menu_options';
+const MENU_WITH_EXTRAS_ID = 'menu_with_extras';
+const MENU_WITHOUT_EXTRAS_ID = 'menu_without_extras';
+
+const MENU_OPTION_ROWS: Product[][] = [
+   [
+      {
+         id: MENU_WITH_EXTRAS_ID,
+         name: 'Mit Extras',
+         price: 0,
+         hidePrice: true,
+         color: 'bg-green-100 border-green-200 text-green-900',
+      },
+      {
+         id: MENU_WITHOUT_EXTRAS_ID,
+         name: 'Ohne Extras',
+         price: 0,
+         hidePrice: true,
+         color: 'bg-slate-100 border-slate-200 text-slate-900',
+      },
+   ],
+];
+
+const createOrderId = () => Math.random().toString(36).slice(2, 11);
 
 export default function App() {
    const [view, setView] = useState<ViewState>('POS');
    const [activeCategory, setActiveCategory] = useState<string | null>(null);
    const [order, setOrder] = useState<OrderItem[]>([]);
+   const [activeMenuParentOrderId, setActiveMenuParentOrderId] = useState<string | null>(null);
    const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
    const [paymentResult, setPaymentResult] = useState<string | null>(null);
    const [isProductsMinimized, setIsProductsMinimized] = useState(false);
    const [isOrderMinimized, setIsOrderMinimized] = useState(false);
 
-   const { isMobile, isPortrait, isMobilePortrait } = useMobileDetection();
+   const { isMobilePortrait } = useMobileDetection();
 
    // Dark Mode verhindern und Theme fixieren
    useEffect(() => {
@@ -57,35 +81,144 @@ export default function App() {
       return order.reduce((sum, item) => sum + item.price * item.quantity, 0);
    }, [order]);
 
+   const activeMenuParent = useMemo(() => {
+      return order.find((item) => item.orderId === activeMenuParentOrderId) ?? null;
+   }, [order, activeMenuParentOrderId]);
+
+   const categoryRows = useMemo(() => {
+      if (activeCategory === MENU_OPTIONS_CATEGORY_ID) {
+         return MENU_OPTION_ROWS;
+      }
+
+      if (!activeCategory) {
+         return [];
+      }
+
+      return CATEGORY_ITEMS_ROWS[activeCategory] || [];
+   }, [activeCategory]);
+
+   const headline = useMemo(() => {
+      if (view === 'HOME') {
+         return 'Administration';
+      }
+
+      if (activeMenuParent) {
+         return activeMenuParent.name;
+      }
+
+      if (view === 'CATEGORY' && activeCategory) {
+         const buttonText = getButtonText(activeCategory, true);
+         return buttonText.line1 + (buttonText.line2 ? ' ' + buttonText.line2 : '');
+      }
+
+      return 'FoodTruck POS';
+   }, [view, activeMenuParent, activeCategory]);
+
+   useEffect(() => {
+      if (activeMenuParentOrderId && !activeMenuParent) {
+         setActiveMenuParentOrderId(null);
+         setActiveCategory(null);
+         setView('POS');
+      }
+   }, [activeMenuParent, activeMenuParentOrderId]);
+
    const goBack = () => {
       setView('POS');
       setActiveCategory(null);
+      setActiveMenuParentOrderId(null);
    };
 
-   const addToOrder = (product: Product) => {
-      if (product.isCategory) {
-         setActiveCategory(product.id);
+   const openCategory = (categoryId: string) => {
+      setActiveMenuParentOrderId(null);
+      setActiveCategory(categoryId);
+      setView('CATEGORY');
+   };
+
+   const addStandaloneToOrder = (product: Product) => {
+      setOrder((prev) => {
+         const existing = prev.find((item) => item.id === product.id && !item.parentOrderId);
+
+         if (existing) {
+            return prev.map((item) => (item.orderId === existing.orderId ? { ...item, quantity: item.quantity + 1 } : item));
+         }
+
+         return [...prev, { ...product, quantity: 1, orderId: createOrderId() }];
+      });
+   };
+
+   const startMenuOrder = (product: Product) => {
+      const orderId = createOrderId();
+
+      setOrder((prev) => [...prev, { ...product, quantity: 1, orderId }]);
+      setActiveMenuParentOrderId(orderId);
+      setActiveCategory(MENU_OPTIONS_CATEGORY_ID);
+      setView('CATEGORY');
+   };
+
+   const addChildToOrder = (product: Product, parentOrderId: string) => {
+      setOrder((prev) => {
+         const existing = prev.find((item) => item.id === product.id && item.parentOrderId === parentOrderId);
+
+         if (existing) {
+            return prev.map((item) => (item.orderId === existing.orderId ? { ...item, quantity: item.quantity + 1 } : item));
+         }
+
+         return [...prev, { ...product, quantity: 1, orderId: createOrderId(), parentOrderId }];
+      });
+   };
+
+   const handleMenuOptionClick = (product: Product) => {
+      if (!activeMenuParent) {
+         return;
+      }
+
+      if (product.id === MENU_WITH_EXTRAS_ID && activeMenuParent.menuCategoryId) {
+         setActiveCategory(activeMenuParent.menuCategoryId);
          setView('CATEGORY');
          return;
       }
 
-      setOrder((prev) => {
-         const existing = prev.find((item) => item.id === product.id);
-         if (existing) {
-            return prev.map((item) => (item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item));
-         }
-         return [...prev, { ...product, quantity: 1, orderId: Math.random().toString(36).substr(2, 9) }];
-      });
+      goBack();
+   };
+
+   const addToOrder = (product: Product) => {
+      if (activeCategory === MENU_OPTIONS_CATEGORY_ID && activeMenuParentOrderId) {
+         handleMenuOptionClick(product);
+         return;
+      }
+
+      if (product.isCategory) {
+         openCategory(product.id);
+         return;
+      }
+
+      if (activeMenuParentOrderId) {
+         addChildToOrder(product, activeMenuParentOrderId);
+         return;
+      }
+
+      if (product.menuCategoryId) {
+         startMenuOrder(product);
+         return;
+      }
+
+      addStandaloneToOrder(product);
    };
 
    const removeFromOrder = (orderId: string) => {
-      setOrder((prev) => prev.filter((item) => item.orderId !== orderId));
+      setOrder((prev) => prev.filter((item) => item.orderId !== orderId && item.parentOrderId !== orderId));
+
+      if (activeMenuParentOrderId === orderId) {
+         setActiveMenuParentOrderId(null);
+         setActiveCategory(null);
+         setView('POS');
+      }
    };
 
    const updateQuantity = (orderId: string, delta: number) => {
       setOrder((prev) =>
          prev.map((item) => {
-            if (item.orderId === orderId) {
+            if (item.orderId === orderId || item.parentOrderId === orderId) {
                const newQty = Math.max(1, item.quantity + delta);
                return { ...item, quantity: newQty };
             }
@@ -96,6 +229,14 @@ export default function App() {
 
    const clearOrder = () => {
       setOrder([]);
+      setActiveCategory(null);
+      setActiveMenuParentOrderId(null);
+   };
+
+   const toggleHomeView = () => {
+      setView((currentView) => (currentView === 'HOME' ? 'POS' : 'HOME'));
+      setActiveCategory(null);
+      setActiveMenuParentOrderId(null);
    };
 
    const handlePaymentOption = (option: string) => {
@@ -137,14 +278,7 @@ export default function App() {
                            </button>
                         )}
                         <h1 className='text-lg font-black tracking-tighter uppercase flex items-center gap-2'>
-                           {view === 'HOME'
-                              ? 'Administration'
-                              : view === 'CATEGORY' && activeCategory
-                                ? (() => {
-                                     const buttonText = getButtonText(activeCategory, true);
-                                     return buttonText.line1 + (buttonText.line2 ? ' ' + buttonText.line2 : '');
-                                  })()
-                                : 'FoodTruck POS'}
+                           {headline}
                            <span className='text-[10px] font-normal text-slate-400 tracking-normal'>v{APP_VERSION}</span>
                         </h1>
                      </div>
@@ -156,7 +290,7 @@ export default function App() {
                            {isProductsMinimized ? <Maximize2 className='w-4 h-4' /> : <Minimize2 className='w-4 h-4' />}
                         </button>
                         <button
-                           onClick={() => setView(view === 'HOME' ? 'POS' : 'HOME')}
+                           onClick={toggleHomeView}
                            className={`p-2 rounded-lg transition-all flex items-center gap-1 font-bold uppercase text-xs tracking-widest ${
                               view === 'HOME'
                                  ? 'bg-orange-500 text-white shadow-lg'
@@ -198,6 +332,7 @@ export default function App() {
                         ) : view === 'CATEGORY' && activeCategory ? (
                            <CategoryMenu
                               categoryId={activeCategory}
+                              rows={categoryRows}
                               onBack={goBack}
                               onProductClick={addToOrder}
                            />
@@ -263,19 +398,12 @@ export default function App() {
                            </button>
                         )}
                         <h1 className='text-xl font-black tracking-tighter uppercase flex items-center gap-2'>
-                           {view === 'HOME'
-                              ? 'Administration'
-                              : view === 'CATEGORY' && activeCategory
-                                ? (() => {
-                                     const buttonText = getButtonText(activeCategory, true);
-                                     return buttonText.line1 + (buttonText.line2 ? ' ' + buttonText.line2 : '');
-                                  })()
-                                : 'FoodTruck POS'}
+                           {headline}
                            <span className='text-[10px] font-normal text-slate-400 tracking-normal'>v{APP_VERSION}</span>
                         </h1>
                      </div>
                      <button
-                        onClick={() => setView(view === 'HOME' ? 'POS' : 'HOME')}
+                        onClick={toggleHomeView}
                         className={`p-3 rounded-xl transition-all flex items-center gap-2 font-bold uppercase text-xs tracking-widest ${
                            view === 'HOME'
                               ? 'bg-orange-500 text-white shadow-lg'
@@ -314,6 +442,7 @@ export default function App() {
                      ) : view === 'CATEGORY' && activeCategory ? (
                         <CategoryMenu
                            categoryId={activeCategory}
+                           rows={categoryRows}
                            onBack={goBack}
                            onProductClick={addToOrder}
                         />

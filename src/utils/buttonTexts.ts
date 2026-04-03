@@ -39,6 +39,11 @@ export const MAIN_MENU_TEXTS: Record<string, ButtonText> = {
     line2: '',
     fullName: 'Kaffee'
   },
+  'cat_kaffee_extra': {
+    line1: 'KAFFEE',
+    line2: 'EXTRAS',
+    fullName: 'Kaffee Extras'
+  },
   'cat_drinks': {
     line1: 'DRINKS',
     line2: '',
@@ -48,6 +53,16 @@ export const MAIN_MENU_TEXTS: Record<string, ButtonText> = {
     line1: 'AF',
     line2: 'DRINKS',
     fullName: 'AF Drinks'
+  },
+  'menu_with_extras': {
+    line1: 'MIT',
+    line2: 'EXTRAS',
+    fullName: 'Mit Extras'
+  },
+  'menu_without_extras': {
+    line1: 'OHNE',
+    line2: 'EXTRAS',
+    fullName: 'Ohne Extras'
   }
 };
 
@@ -273,6 +288,7 @@ export const getCategoryTexts = (categoryId: string): Record<string, ButtonText>
     case 'cat_extra': return EXTRAS_TEXTS;
     case 'cat_süsses': return SÜSSES_TEXTS;
     case 'cat_kaffee': return KAFFEE_TEXTS;
+    case 'cat_kaffee_extra': return KAFFEE_TEXTS;
     case 'cat_drinks': return DRINKS_TEXTS;
     case 'cat_af_drinks': return AF_DRINKS_TEXTS;
     default: return MAIN_MENU_TEXTS;
