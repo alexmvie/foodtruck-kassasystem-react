@@ -22,20 +22,23 @@ const ROW_COLORS = {
 export const MAIN_MENU_ROWS: Product[][] = [
   // Row 1: Orange - Waffles & Soft Ice
   [
-    { id: 'w1', name: 'Bubble Waffle', price: 8, color: ROW_COLORS.orange2, menuCategoryId: 'cat_extra' },
-    { id: 'w2', name: 'Belgian Waffle', price: 8, color: ROW_COLORS.orange2, menuCategoryId: 'cat_extra' },
-    { id: 'i1', name: 'Softeis', price: 4, color: ROW_COLORS.orange2, menuCategoryId: 'cat_extra' },
+    { id: 'w1', name: 'Bubble Waffle', price: 8, color: ROW_COLORS.orange2, menuCategoryId: 'cat_menu_extra' },
+    { id: 'w2', name: 'Belgian Waffle', price: 8, color: ROW_COLORS.orange2, menuCategoryId: 'cat_menu_extra' },
+    { id: 'i1', name: 'Softeis', price: 4, color: ROW_COLORS.orange2, menuCategoryId: 'cat_menu_extra' },
   ],
-  // Row 2: Green - Extras & Süsses
+  // Row 2: Green - Kaffee & Süsses
   [
-    { id: 'cat_extra', name: 'Extras', price: 0, isCategory: true, color: ROW_COLORS.green2 },
+    { id: 'cat_kaffee', name: 'Kaffee', price: 0, isCategory: true, color: ROW_COLORS.green2 },
     { id: 'cat_süsses', name: 'Süsses', price: 0, isCategory: true, color: ROW_COLORS.green2 },
   ],
-  // Row 3: Pink - Coffee & Drinks
+  // Row 3: Pink - Drinks & AF Drinks
   [
-    { id: 'cat_kaffee', name: 'Kaffee', price: 0, isCategory: true, color: ROW_COLORS.pink2 },
     { id: 'cat_drinks', name: 'Drinks', price: 0, isCategory: true, color: ROW_COLORS.pink2 },
     { id: 'cat_af_drinks', name: 'AF Drinks', price: 0, isCategory: true, color: ROW_COLORS.pink2 },
+  ],
+  // Row 4: Green - Extras
+  [
+    { id: 'cat_extra', name: 'Extras', price: 0, isCategory: true, color: ROW_COLORS.green7 },
   ],
 ];
 
@@ -64,14 +67,63 @@ export const CATEGORY_ITEMS_ROWS: Record<string, Product[][]> = {
     ],
     // Row 4: Sauces - 6 items
     [
-      { id: 'ex_schoko', name: 'Schoko', price: 1, color: ROW_COLORS.green4 },
-      { id: 'ex_nutella', name: 'Nutella', price: 1, color: ROW_COLORS.green4 },
-      { id: 'ex_karamell', name: 'Karamell', price: 1, color: ROW_COLORS.green4 },
-      { id: 'ex_himbeer_sauce', name: 'Himbeer', price: 1, color: ROW_COLORS.green4 },
-      { id: 'ex_waldbeer', name: 'Waldbeere', price: 1, color: ROW_COLORS.green4 },
-      { id: 'ex_erdbeer_sauce', name: 'Erdbeere', price: 1, color: ROW_COLORS.green4 },
+      { id: 'ex_schoko', name: 'Schoko Sauce', price: 1, color: ROW_COLORS.green4 },
+      { id: 'ex_nutella', name: 'Nutella Sauce', price: 1, color: ROW_COLORS.green4 },
+      { id: 'ex_karamell', name: 'Karamell Sauce', price: 1, color: ROW_COLORS.green4 },
+      { id: 'ex_himbeer_sauce', name: 'Himbeer Sauce', price: 1, color: ROW_COLORS.green4 },
+      { id: 'ex_waldbeer', name: 'Waldbeer Sauce', price: 1, color: ROW_COLORS.green4 },
+      { id: 'ex_erdbeer_sauce', name: 'Erdbeer Sauce', price: 1, color: ROW_COLORS.green4 },
     ],
     // Row 5: Free toppings - 2 items (Zimt, Staubzucker)
+    [
+      { id: 'ex_zimt', name: 'Zimt', price: 0, color: ROW_COLORS.green5 },
+      { id: 'ex_staubzucker', name: 'Staubzucker', price: 0, color: ROW_COLORS.green5 },
+    ],
+    // Row 6: Milk options - 4 items
+    [
+      { id: 'c8', name: 'Hafermilch', price: 1, color: ROW_COLORS.green6 },
+      { id: 'c_kokos', name: 'Kokosmilch', price: 1, color: ROW_COLORS.green6 },
+      { id: 'c9', name: 'Laktosefrei', price: 0, color: ROW_COLORS.green6 },
+      { id: 'c10', name: 'Koffeinfrei', price: 0, color: ROW_COLORS.green6 },
+    ],
+    // Row 7: Syrups - 2 items
+    [
+      { id: 'c_vanille', name: 'Vanille Sirup', price: 1, color: ROW_COLORS.green7 },
+      { id: 'c_karamell_sirup', name: 'Karamell Sirup', price: 1, color: ROW_COLORS.green7 },
+    ]
+  ],
+  'cat_menu_extra': [
+    // Row 1: Basic extras - 3 items (Schlagobers, Vegan, Eis)
+    [
+      { id: 'ex2', name: 'Schlagobers', price: 1, color: ROW_COLORS.green1 },
+      { id: 'ex2v', name: 'Schlagobers Vegan', price: 2, color: ROW_COLORS.green1 },
+      { id: 'ex6', name: 'Portion Eis', price: 2, color: ROW_COLORS.green1 },
+    ],
+    // Row 2: Crunchy extras - 5 items
+    [
+      { id: 'ex_marsh', name: 'Marshmellow', price: 1, color: ROW_COLORS.green2 },
+      { id: 'ex3', name: 'Oreo', price: 1, color: ROW_COLORS.green2 },
+      { id: 'ex4', name: 'Smarties', price: 1, color: ROW_COLORS.green2 },
+      { id: 'ex5', name: 'Krokant', price: 1, color: ROW_COLORS.green2 },
+      { id: 'ex_matcha', name: 'Matcha', price: 2, color: ROW_COLORS.green2 },
+    ],
+    // Row 3: Fruits - 4 items
+    [
+      { id: 'ex_banana', name: 'Banane', price: 1, color: ROW_COLORS.green3 },
+      { id: 'ex_erdbeer', name: 'Erdbeere', price: 1, color: ROW_COLORS.green3 },
+      { id: 'ex_heidelbeer', name: 'Heidelbeere', price: 1, color: ROW_COLORS.green3 },
+      { id: 'ex_himbeer', name: 'Himbeere', price: 1, color: ROW_COLORS.green3 },
+    ],
+    // Row 4: Sauces - 6 items
+    [
+      { id: 'ex_schoko', name: 'Schoko Sauce', price: 1, color: ROW_COLORS.green4 },
+      { id: 'ex_nutella', name: 'Nutella Sauce', price: 1, color: ROW_COLORS.green4 },
+      { id: 'ex_karamell', name: 'Karamell Sauce', price: 1, color: ROW_COLORS.green4 },
+      { id: 'ex_himbeer_sauce', name: 'Himbeer Sauce', price: 1, color: ROW_COLORS.green4 },
+      { id: 'ex_waldbeer', name: 'Waldbeer Sauce', price: 1, color: ROW_COLORS.green4 },
+      { id: 'ex_erdbeer_sauce', name: 'Erdbeer Sauce', price: 1, color: ROW_COLORS.green4 },
+    ],
+    // Row 5: Free toppings - 2 items
     [
       { id: 'ex_zimt', name: 'Zimt', price: 0, color: ROW_COLORS.green5 },
       { id: 'ex_staubzucker', name: 'Staubzucker', price: 0, color: ROW_COLORS.green5 },
@@ -104,13 +156,13 @@ export const CATEGORY_ITEMS_ROWS: Record<string, Product[][]> = {
   'cat_kaffee_extra': [
     [
       { id: 'c8', name: 'Hafermilch', price: 1, color: ROW_COLORS.pink1 },
-      { id: 'c_kokos', name: 'Kokos', price: 1, color: ROW_COLORS.pink1 },
+      { id: 'c_kokos', name: 'Kokosmilch', price: 1, color: ROW_COLORS.pink1 },
       { id: 'c9', name: 'Laktosefrei', price: 0, color: ROW_COLORS.pink1 },
     ],
     [
       { id: 'c10', name: 'Koffeinfrei', price: 0, color: ROW_COLORS.pink2 },
-      { id: 'c_vanille', name: 'Vanille', price: 1, color: ROW_COLORS.pink2 },
-      { id: 'c_karamell_sirup', name: 'Karamell', price: 1, color: ROW_COLORS.pink2 },
+      { id: 'c_vanille', name: 'Vanille Sirup', price: 1, color: ROW_COLORS.pink2 },
+      { id: 'c_karamell_sirup', name: 'Karamell Sirup', price: 1, color: ROW_COLORS.pink2 },
     ],
     [
       { id: 'ex2', name: 'Schlagobers', price: 1, color: ROW_COLORS.pink3 },

@@ -12,7 +12,7 @@ interface CategoryMenuProps {
 export const CategoryMenu = ({ rows, onBack, onProductClick }: CategoryMenuProps) => {
   return (
     <motion.div 
-      className="flex flex-col gap-6 h-full overflow-hidden"
+      className="flex flex-col gap-6 h-full min-h-0 overflow-hidden"
       drag="x"
       dragConstraints={{ left: 0, right: 0 }}
       onDragEnd={(_, info) => {
@@ -22,7 +22,7 @@ export const CategoryMenu = ({ rows, onBack, onProductClick }: CategoryMenuProps
       }}
     >
       {/* Product Rows */}
-      <div className="flex flex-col gap-6 overflow-y-auto flex-1">
+      <div className="flex flex-col gap-6 overflow-y-auto flex-1 min-h-0 pr-1">
         <AnimatePresence mode="popLayout">
           {rows.map((row, rowIndex) => (
             <div key={rowIndex} className="grid grid-cols-6 gap-3 content-start">

@@ -266,7 +266,7 @@ export default function App() {
             <div className='flex flex-col w-full h-full'>
                {/* Top Section: Product Grid */}
                <div
-                  className={`flex flex-col min-w-0 border-b border-slate-200 transition-all duration-300 ${
+                  className={`flex flex-col min-w-0 min-h-0 border-b border-slate-200 transition-all duration-300 ${
                      isProductsMinimized ? 'h-16' : 'flex-1'
                   }`}
                >
@@ -308,7 +308,7 @@ export default function App() {
 
                   {/* Product Content */}
                   {!isProductsMinimized && (
-                     <div className='flex-1 p-2 overflow-hidden relative'>
+                     <div className='flex-1 min-h-0 p-2 overflow-hidden relative'>
                         {view === 'HOME' ? (
                            <div className='grid grid-cols-2 gap-2 h-full'>
                               {[

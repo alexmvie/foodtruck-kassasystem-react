@@ -68,12 +68,12 @@ zahlen vor den artikeln kennzeichnen die zeile in der diese gemeinsam stehen sol
   - 3 erdbeere: 1.00€
   - 3 heidelbeere: 1.00€
   - 3 himbeere: 1.00€
-  - 4 schoko: 1.00€
-  - 4 nutella: 1.00€
-  - 4 karamell: 1.00€
-  - 4 himbeer: 1.00€
-  - 4 waldbeere: 1.00€
-  - 4 erdbeere: 1.00€
+  - 4 schoko sauce: 1.00€
+  - 4 nutella sauce: 1.00€
+  - 4 karamell sauce: 1.00€
+  - 4 himbeer sauce: 1.00€
+  - 4 waldbeere sauce: 1.00€
+  - 4 erdbeere sauce: 1.00€
   - 5 zimt: 0.00€
   - 5 staubzucker: 0.00€
 
@@ -92,12 +92,12 @@ zahlen vor den artikeln kennzeichnen die zeile in der diese gemeinsam stehen sol
   - 3 erdbeere: 1.00€
   - 3 heidelbeere: 1.00€
   - 3 himbeere: 1.00€
-  - 4 schoko: 1.00€
-  - 4 nutella: 1.00€
-  - 4 karamell: 1.00€
-  - 4 himbeer: 1.00€
-  - 4 waldbeere: 1.00€
-  - 4 erdbeere: 1.00€
+  - 4 schoko sauce: 1.00€
+  - 4 nutella sauce: 1.00€
+  - 4 karamell sauce: 1.00€
+  - 4 himbeer sauce: 1.00€
+  - 4 waldbeere sauce: 1.00€
+  - 4 erdbeere sauce: 1.00€
   - 5 zimt: 0.00€
   - 5 staubzucker: 0.00€
 
@@ -105,81 +105,81 @@ zahlen vor den artikeln kennzeichnen die zeile in der diese gemeinsam stehen sol
   - espresso: 3.50€
     - extras:
       - 1 hafermilch: 0.00€
-      - 1 kokos: 0.00€
+      - 1 kokosmilch: 0.00€
       - 1 laktosefrei: 0.00€
       - 4 koffeinfrei: 0.00€
-      - 2 vanille: 1.00€
-      - 2 karamell: 1.00€
+      - 2 vanille sirup: 1.00€
+      - 2 karamell sirup: 1.00€
       - 3 schlagobers: 1.00€
       - 3 schlagobers vegan: 2.00€
   - doppelter espresso: 5.50€
     - extras:
       - 1 hafermilch: 0.00€
-      - 1 kokos: 0.00€
+      - 1 kokosmilch: 0.00€
       - 1 laktosefrei: 0.00€
       - 4 koffeinfrei: 0.00€
-      - 2 vanille: 1.00€
-      - 2 karamell: 1.00€
+      - 2 vanille sirup: 1.00€
+      - 2 karamell sirup: 1.00€
       - 3 schlagobers: 1.00€
       - 3 schlagobers vegan: 2.00€
   - verlängerter: 3.50€
     - extras:
       - 1 hafermilch: 0.00€
-      - 1 kokos: 0.00€
+      - 1 kokosmilch: 0.00€
       - 1 laktosefrei: 0.00€
       - 4 koffeinfrei: 0.00€
-      - 2 vanille: 1.00€
-      - 2 karamell: 1.00€
+      - 2 vanille sirup: 1.00€
+      - 2 karamell sirup: 1.00€
       - 3 schlagobers: 1.00€
       - 3 schlagobers vegan: 2.00€
   - cappuccino: 4.50€
     - extras:
       - 1 hafermilch: 1.00€
-      - 1 kokos: 1.00€
+      - 1 kokosmilch: 1.00€
       - 1 laktosefrei: 0.00€
       - 4 koffeinfrei: 0.00€
-      - 2 vanille: 1.00€
-      - 2 karamell: 1.00€
+      - 2 vanille sirup: 1.00€
+      - 2 karamell sirup: 1.00€
       - 3 schlagobers: 1.00€
       - 3 schlagobers vegan: 2.00€
   - latte macchiato: 5.00€
     - extras:
       - 1 hafermilch: 1.00€
-      - 1 kokos: 1.00€
+      - 1 kokosmilch: 1.00€
       - 1 laktosefrei: 0.00€
       - 4 koffeinfrei: 0.00€
-      - 2 vanille: 1.00€
-      - 2 karamell: 1.00€
+      - 2 vanille sirup: 1.00€
+      - 2 karamell sirup: 1.00€
       - 3 schlagobers: 1.00€
       - 3 schlagobers vegan: 2.00€
   - matcha: 6.50€
     - extras:
       - 1 hafermilch: 1.00€
-      - 1 kokos: 1.00€
+      - 1 kokosmilch: 1.00€
       - 1 laktosefrei: 0.00€
       - 4 koffeinfrei: 0.00€
-      - 2 vanille: 1.00€
-      - 2 karamell: 1.00€
+      - 2 vanille sirup: 1.00€
+      - 2 karamell sirup: 1.00€
       - 3 schlagobers: 1.00€
       - 3 schlagobers vegan: 2.00€
   - chai: 6.50€
     - extras:
       - 1 hafermilch: 1.00€
-      - 1 kokos: 1.00€
+      - 1 kokosmilch: 1.00€
       - 1 laktosefrei: 0.00€
       - 4 koffeinfrei: 0.00€
-      - 2 vanille: 1.00€
-      - 2 karamell: 1.00€
+      - 2 vanille sirup: 1.00€
+      - 2 karamell sirup: 1.00€
       - 3 schlagobers: 1.00€
       - 3 schlagobers vegan: 2.00€
   - kakao: 5.50€
     - extras:
       - 1 hafermilch: 1.00€
-      - 1 kokos: 1.00€
+      - 1 kokosmilch: 1.00€
       - 1 laktosefrei: 0.00€
       - 4 koffeinfrei: 0.00€
-      - 2 vanille: 1.00€
-      - 2 karamell: 1.00€
+      - 2 vanille sirup: 1.00€
+      - 2 karamell sirup: 1.00€
       - 3 schlagobers: 1.00€
       - 3 schlagobers vegan: 2.00€
 
