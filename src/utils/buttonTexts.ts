@@ -130,33 +130,33 @@ export const EXTRAS_TEXTS: Record<string, ButtonText> = {
   },
   'ex_schoko': {
     line1: 'SCHOKO',
-    line2: 'SAUCE',
-    fullName: 'Schoko Sauce'
+    line2: '',
+    fullName: 'Schoko'
   },
   'ex_nutella': {
     line1: 'NUTELLA',
-    line2: 'SAUCE',
-    fullName: 'Nutella Sauce'
+    line2: '',
+    fullName: 'Nutella'
   },
   'ex_karamell': {
     line1: 'KARAMELL',
-    line2: 'SAUCE',
-    fullName: 'Karamell Sauce'
+    line2: '',
+    fullName: 'Karamell'
   },
   'ex_himbeer_sauce': {
     line1: 'HIMBEER',
-    line2: 'SAUCE',
-    fullName: 'Himbeer Sauce'
+    line2: '',
+    fullName: 'Himbeer'
   },
   'ex_waldbeer': {
     line1: 'WALDBEERE',
-    line2: 'SAUCE',
-    fullName: 'Waldbeere Sauce'
+    line2: '',
+    fullName: 'Waldbeere'
   },
   'ex_erdbeer_sauce': {
     line1: 'ERDBEERE',
-    line2: 'SAUCE',
-    fullName: 'Erdbeere Sauce'
+    line2: '',
+    fullName: 'Erdbeere'
   },
   'ex_zimt': {
     line1: 'ZIMT',
@@ -247,24 +247,24 @@ export const KAFFEE_TEXTS: Record<string, ButtonText> = {
     fullName: 'Kokos'
   },
   'c9': {
-    line1: 'LAKTOFREIE',
-    line2: 'MILCH',
-    fullName: 'Laktofreie Milch'
+    line1: 'LAKTOSEFREI',
+    line2: '',
+    fullName: 'Laktosefrei'
   },
   'c10': {
     line1: 'KOFFEINFREI',
     line2: '',
-    fullName: 'Koffeeinfrei'
+    fullName: 'Koffeinfrei'
   },
   'c_vanille': {
     line1: 'VANILLE',
-    line2: 'SIRUP',
-    fullName: 'Vanille Sirup'
+    line2: '',
+    fullName: 'Vanille'
   },
   'c_karamell_sirup': {
     line1: 'KARAMELL',
-    line2: 'SIRUP',
-    fullName: 'Karamell Sirup'
+    line2: '',
+    fullName: 'Karamell'
   }
 };
 

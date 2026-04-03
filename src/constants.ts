@@ -64,29 +64,29 @@ export const CATEGORY_ITEMS_ROWS: Record<string, Product[][]> = {
     ],
     // Row 4: Sauces - 6 items
     [
-      { id: 'ex_schoko', name: 'Schoko Sauce', price: 1, color: ROW_COLORS.green4 },
-      { id: 'ex_nutella', name: 'Nutella Sauce', price: 1, color: ROW_COLORS.green4 },
-      { id: 'ex_karamell', name: 'Karamell Sauce', price: 1, color: ROW_COLORS.green4 },
-      { id: 'ex_himbeer_sauce', name: 'Himbeer Sauce', price: 1, color: ROW_COLORS.green4 },
-      { id: 'ex_waldbeer', name: 'Waldbeere Sauce', price: 1, color: ROW_COLORS.green4 },
-      { id: 'ex_erdbeer_sauce', name: 'Erdbeere Sauce', price: 1, color: ROW_COLORS.green4 },
+      { id: 'ex_schoko', name: 'Schoko', price: 1, color: ROW_COLORS.green4 },
+      { id: 'ex_nutella', name: 'Nutella', price: 1, color: ROW_COLORS.green4 },
+      { id: 'ex_karamell', name: 'Karamell', price: 1, color: ROW_COLORS.green4 },
+      { id: 'ex_himbeer_sauce', name: 'Himbeer', price: 1, color: ROW_COLORS.green4 },
+      { id: 'ex_waldbeer', name: 'Waldbeere', price: 1, color: ROW_COLORS.green4 },
+      { id: 'ex_erdbeer_sauce', name: 'Erdbeere', price: 1, color: ROW_COLORS.green4 },
     ],
     // Row 5: Free toppings - 2 items (Zimt, Staubzucker)
     [
       { id: 'ex_zimt', name: 'Zimt', price: 0, color: ROW_COLORS.green5 },
       { id: 'ex_staubzucker', name: 'Staubzucker', price: 0, color: ROW_COLORS.green5 },
     ],
-    // Row 6: Milk options - 4 items (Hafermilch, Kokos, Laktofreie, Koffeinfrei)
+    // Row 6: Milk options - 4 items (Hafermilch, Kokos, Laktosefrei, Koffeinfrei)
     [
       { id: 'c8', name: 'Hafermilch', price: 1, color: ROW_COLORS.green6 },
       { id: 'c_kokos', name: 'Kokos', price: 1, color: ROW_COLORS.green6 },
-      { id: 'c9', name: 'Laktofreie Milch', price: 0, color: ROW_COLORS.green6 },
-      { id: 'c10', name: 'Koffeeinfrei', price: 0, color: ROW_COLORS.green6 },
+      { id: 'c9', name: 'Laktosefrei', price: 0, color: ROW_COLORS.green6 },
+      { id: 'c10', name: 'Koffeinfrei', price: 0, color: ROW_COLORS.green6 },
     ],
     // Row 7: Syrups - 2 items (Vanille, Karamell)
     [
-      { id: 'c_vanille', name: 'Vanille Sirup', price: 1, color: ROW_COLORS.green7 },
-      { id: 'c_karamell_sirup', name: 'Karamell Sirup', price: 1, color: ROW_COLORS.green7 },
+      { id: 'c_vanille', name: 'Vanille', price: 1, color: ROW_COLORS.green7 },
+      { id: 'c_karamell_sirup', name: 'Karamell', price: 1, color: ROW_COLORS.green7 },
     ]
   ],
   'cat_süsses': [
@@ -138,12 +138,12 @@ export const CATEGORY_ITEMS_ROWS: Record<string, Product[][]> = {
     ],
     // Row 4: Sauces
     [
-      { id: 'ex_schoko', name: 'Schoko Sauce', price: 1, color: ROW_COLORS.pink1 },
-      { id: 'ex_nutella', name: 'Nutella Sauce', price: 1, color: ROW_COLORS.pink1 },
-      { id: 'ex_karamell', name: 'Karamell Sauce', price: 1, color: ROW_COLORS.pink1 },
-      { id: 'ex_himbeer_sauce', name: 'Himbeer Sauce', price: 1, color: ROW_COLORS.pink1 },
-      { id: 'ex_waldbeer', name: 'Waldbeere Sauce', price: 1, color: ROW_COLORS.pink1 },
-      { id: 'ex_erdbeer_sauce', name: 'Erdbeere Sauce', price: 1, color: ROW_COLORS.pink1 },
+      { id: 'ex_schoko', name: 'Schoko', price: 1, color: ROW_COLORS.pink1 },
+      { id: 'ex_nutella', name: 'Nutella', price: 1, color: ROW_COLORS.pink1 },
+      { id: 'ex_karamell', name: 'Karamell', price: 1, color: ROW_COLORS.pink1 },
+      { id: 'ex_himbeer_sauce', name: 'Himbeer', price: 1, color: ROW_COLORS.pink1 },
+      { id: 'ex_waldbeer', name: 'Waldbeere', price: 1, color: ROW_COLORS.pink1 },
+      { id: 'ex_erdbeer_sauce', name: 'Erdbeere', price: 1, color: ROW_COLORS.pink1 },
     ],
     // Row 5: Free toppings
     [
@@ -154,13 +154,13 @@ export const CATEGORY_ITEMS_ROWS: Record<string, Product[][]> = {
     [
       { id: 'c8', name: 'Hafermilch', price: 1, color: ROW_COLORS.pink3 },
       { id: 'c_kokos', name: 'Kokos', price: 1, color: ROW_COLORS.pink3 },
-      { id: 'c9', name: 'Laktofreie Milch', price: 0, color: ROW_COLORS.pink3 },
-      { id: 'c10', name: 'Koffeeinfrei', price: 0, color: ROW_COLORS.pink3 },
+      { id: 'c9', name: 'Laktosefrei', price: 0, color: ROW_COLORS.pink3 },
+      { id: 'c10', name: 'Koffeinfrei', price: 0, color: ROW_COLORS.pink3 },
     ],
     // Row 7: Syrups
     [
-      { id: 'c_vanille', name: 'Vanille Sirup', price: 1, color: ROW_COLORS.pink1 },
-      { id: 'c_karamell_sirup', name: 'Karamell Sirup', price: 1, color: ROW_COLORS.pink1 },
+      { id: 'c_vanille', name: 'Vanille', price: 1, color: ROW_COLORS.pink1 },
+      { id: 'c_karamell_sirup', name: 'Karamell', price: 1, color: ROW_COLORS.pink1 },
     ]
   ],
   'cat_drinks': [
