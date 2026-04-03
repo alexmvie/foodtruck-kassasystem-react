@@ -1,7 +1,6 @@
 import { motion } from 'motion/react';
 import { ChevronRight } from 'lucide-react';
 import { Product } from '../types';
-import { getButtonTextClass } from '../styles/tokens';
 import { useMobileDetection } from '../hooks/useMobileDetection';
 import { getButtonText } from '../utils/buttonTexts';
 
@@ -67,7 +66,7 @@ export const ProductButton = ({ product, onClick }: ProductButtonProps) => {
 
       {/* Untere Bereich: Preis oder Kategorie-Info */}
       <div className="flex justify-center mt-auto">
-        {!product.isCategory && (
+        {!product.isCategory && !product.hidePrice && (
           <div className={`font-black tracking-tightest text-black ${getPriceSize()}`}>
             {product.price.toFixed(2)} €
           </div>

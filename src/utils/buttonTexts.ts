@@ -39,6 +39,11 @@ export const MAIN_MENU_TEXTS: Record<string, ButtonText> = {
     line2: '',
     fullName: 'Kaffee'
   },
+  'cat_kaffee_extra': {
+    line1: 'KAFFEE',
+    line2: 'EXTRAS',
+    fullName: 'Kaffee Extras'
+  },
   'cat_drinks': {
     line1: 'DRINKS',
     line2: '',
@@ -48,25 +53,45 @@ export const MAIN_MENU_TEXTS: Record<string, ButtonText> = {
     line1: 'AF',
     line2: 'DRINKS',
     fullName: 'AF Drinks'
+  },
+  'menu_with_extras': {
+    line1: 'MIT',
+    line2: 'EXTRAS',
+    fullName: 'Mit Extras'
+  },
+  'menu_without_extras': {
+    line1: 'OHNE',
+    line2: 'EXTRAS',
+    fullName: 'Ohne Extras'
   }
 };
 
-// Kategorie: Extras (Originaltexte)
+// Kategorie: Extras (Updated with new products)
 export const EXTRAS_TEXTS: Record<string, ButtonText> = {
   'ex2': {
     line1: 'SCHLAG',
     line2: 'OBERS',
     fullName: 'Schlagobers'
   },
+  'ex2v': {
+    line1: 'SCHLAG',
+    line2: 'VEGAN',
+    fullName: 'Schlagobers Vegan'
+  },
   'ex6': {
     line1: 'PORTION',
     line2: 'EIS',
     fullName: 'Portion Eis'
   },
-  'ex1': {
-    line1: 'OBST',
+  'ex_matcha': {
+    line1: 'MATCHA',
     line2: '',
-    fullName: 'Obst'
+    fullName: 'Matcha'
+  },
+  'ex_marsh': {
+    line1: 'MARSH',
+    line2: 'MELLOW',
+    fullName: 'Marshmellow'
   },
   'ex3': {
     line1: 'OREO',
@@ -82,6 +107,66 @@ export const EXTRAS_TEXTS: Record<string, ButtonText> = {
     line1: 'KROKANT',
     line2: '',
     fullName: 'Krokant'
+  },
+  'ex_banana': {
+    line1: 'BANANE',
+    line2: '',
+    fullName: 'Banane'
+  },
+  'ex_erdbeer': {
+    line1: 'ERDBEERE',
+    line2: '',
+    fullName: 'Erdbeere'
+  },
+  'ex_heidelbeer': {
+    line1: 'HEIDEL',
+    line2: 'BEERE',
+    fullName: 'Heidelbeere'
+  },
+  'ex_himbeer': {
+    line1: 'HIMBEERE',
+    line2: '',
+    fullName: 'Himbeere'
+  },
+  'ex_schoko': {
+    line1: 'SCHOKO',
+    line2: 'SAUCE',
+    fullName: 'Schoko Sauce'
+  },
+  'ex_nutella': {
+    line1: 'NUTELLA',
+    line2: 'SAUCE',
+    fullName: 'Nutella Sauce'
+  },
+  'ex_karamell': {
+    line1: 'KARAMELL',
+    line2: 'SAUCE',
+    fullName: 'Karamell Sauce'
+  },
+  'ex_himbeer_sauce': {
+    line1: 'HIMBEER',
+    line2: 'SAUCE',
+    fullName: 'Himbeer Sauce'
+  },
+  'ex_waldbeer': {
+    line1: 'WALDBEER',
+    line2: 'SAUCE',
+    fullName: 'Waldbeer Sauce'
+  },
+  'ex_erdbeer_sauce': {
+    line1: 'ERDBEER',
+    line2: 'SAUCE',
+    fullName: 'Erdbeer Sauce'
+  },
+  'ex_zimt': {
+    line1: 'ZIMT',
+    line2: '',
+    fullName: 'Zimt'
+  },
+  'ex_staubzucker': {
+    line1: 'STAUB',
+    line2: 'ZUCKER',
+    fullName: 'Staubzucker'
   }
 };
 
@@ -109,7 +194,7 @@ export const SÜSSES_TEXTS: Record<string, ButtonText> = {
   }
 };
 
-// Kategorie: Kaffee (Originaltexte)
+// Kategorie: Kaffee (Updated with new products and prices)
 export const KAFFEE_TEXTS: Record<string, ButtonText> = {
   'c1': {
     line1: 'ESPRESSO',
@@ -131,6 +216,11 @@ export const KAFFEE_TEXTS: Record<string, ButtonText> = {
     line2: '',
     fullName: 'Cappuccino'
   },
+  'c_latte': {
+    line1: 'LATTE',
+    line2: 'MACCHIATO',
+    fullName: 'Latte Macchiato'
+  },
   'c6': {
     line1: 'MATCHA',
     line2: '',
@@ -147,23 +237,38 @@ export const KAFFEE_TEXTS: Record<string, ButtonText> = {
     fullName: 'Kakao'
   },
   'c8': {
-    line1: 'HAFERMILCH',
-    line2: '',
+    line1: 'HAFER',
+    line2: 'MILCH',
     fullName: 'Hafermilch'
   },
-  'c9': {
-    line1: 'LAKTOFREIE',
+  'c_kokos': {
+    line1: 'KOKOS',
     line2: 'MILCH',
-    fullName: 'Laktofreie Milch'
+    fullName: 'Kokosmilch'
+  },
+  'c9': {
+    line1: 'LAKTOSEFREI',
+    line2: '',
+    fullName: 'Laktosefrei'
   },
   'c10': {
     line1: 'KOFFEINFREI',
     line2: '',
-    fullName: 'Koffeeinfrei'
+    fullName: 'Koffeinfrei'
+  },
+  'c_vanille': {
+    line1: 'VANILLE',
+    line2: 'SIRUP',
+    fullName: 'Vanille Sirup'
+  },
+  'c_karamell_sirup': {
+    line1: 'KARAMELL',
+    line2: 'SIRUP',
+    fullName: 'Karamell Sirup'
   }
 };
 
-// Kategorie: Drinks (Originaltexte)
+// Kategorie: Drinks (Updated with new products)
 export const DRINKS_TEXTS: Record<string, ButtonText> = {
   'a1': {
     line1: 'APEROL',
@@ -190,7 +295,12 @@ export const DRINKS_TEXTS: Record<string, ButtonText> = {
     line2: '',
     fullName: 'Spritzer'
   },
-  'a6': {
+  'a_bier': {
+    line1: 'BIER',
+    line2: '',
+    fullName: 'Bier'
+  },
+  'a_glühwein': {
     line1: 'GLÜHWEIN',
     line2: '',
     fullName: 'Glühwein'
@@ -273,6 +383,7 @@ export const getCategoryTexts = (categoryId: string): Record<string, ButtonText>
     case 'cat_extra': return EXTRAS_TEXTS;
     case 'cat_süsses': return SÜSSES_TEXTS;
     case 'cat_kaffee': return KAFFEE_TEXTS;
+    case 'cat_kaffee_extra': return KAFFEE_TEXTS;
     case 'cat_drinks': return DRINKS_TEXTS;
     case 'cat_af_drinks': return AF_DRINKS_TEXTS;
     default: return MAIN_MENU_TEXTS;

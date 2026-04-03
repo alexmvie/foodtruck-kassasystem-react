@@ -1,21 +1,18 @@
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowLeft } from 'lucide-react';
 import { Product } from '../types';
 import { ProductButton } from './ProductButton';
-import { CATEGORY_ITEMS_ROWS } from '../constants';
 
 interface CategoryMenuProps {
   categoryId: string;
+  rows: Product[][];
   onBack: () => void;
   onProductClick: (product: Product) => void;
 }
 
-export const CategoryMenu = ({ categoryId, onBack, onProductClick }: CategoryMenuProps) => {
-  const rows = CATEGORY_ITEMS_ROWS[categoryId] || [];
-
+export const CategoryMenu = ({ rows, onBack, onProductClick }: CategoryMenuProps) => {
   return (
     <motion.div 
-      className="flex flex-col gap-6 h-full overflow-hidden"
+      className="flex flex-col gap-6 h-full min-h-0 overflow-hidden"
       drag="x"
       dragConstraints={{ left: 0, right: 0 }}
       onDragEnd={(_, info) => {
@@ -25,16 +22,17 @@ export const CategoryMenu = ({ categoryId, onBack, onProductClick }: CategoryMen
       }}
     >
       {/* Product Rows */}
-      <div className="flex flex-col gap-6 overflow-y-auto flex-1">
+      <div className="flex flex-col gap-6 overflow-y-auto flex-1 min-h-0 pr-1">
         <AnimatePresence mode="popLayout">
           {rows.map((row, rowIndex) => (
-            <div key={rowIndex} className="grid grid-cols-4 gap-3 content-start">
+            <div key={rowIndex} className="grid grid-cols-6 gap-3 content-start">
               {row.map((product) => (
-                <ProductButton 
-                  key={product.id} 
-                  product={product} 
-                  onClick={onProductClick} 
-                />
+                <div key={product.id}>
+                  <ProductButton 
+                    product={product} 
+                    onClick={onProductClick} 
+                  />
+                </div>
               ))}
             </div>
           ))}
