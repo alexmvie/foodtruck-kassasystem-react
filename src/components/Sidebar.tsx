@@ -6,6 +6,7 @@ import { useState } from 'react';
 interface SidebarProps {
    order: OrderItem[];
    total: number;
+   orderNumber: number;
    onUpdateQuantity: (orderId: string, delta: number) => void;
    onRemoveFromOrder: (orderId: string) => void;
    onClearOrder: () => void;
@@ -16,6 +17,7 @@ interface SidebarProps {
 export const Sidebar = ({
    order,
    total,
+   orderNumber,
    onUpdateQuantity,
    onRemoveFromOrder,
    onClearOrder,
@@ -50,7 +52,10 @@ export const Sidebar = ({
             <div className='h-16 flex-shrink-0 p-4 bg-white border-b border-slate-200 flex items-center justify-between'>
                <div className='flex items-center gap-2'>
                   <ShoppingCart className='w-5 h-5 text-orange-400' />
-                  <h2 className='text-lg font-black tracking-tight uppercase'>Bestellung</h2>
+                  <div>
+                     <h2 className='text-lg font-black tracking-tight uppercase leading-none'>Bestellung</h2>
+                     <span className='text-[10px] font-bold text-slate-500'>#{orderNumber}</span>
+                  </div>
                </div>
                <div className='bg-orange-500 text-white px-2 py-0.5 rounded-full text-[10px] font-black'>
                   {order.reduce((a, b) => a + b.quantity, 0)} POS

@@ -47,6 +47,8 @@ const MENU_OPTION_ROWS: Product[][] = [
 
 const createOrderId = () => Math.random().toString(36).slice(2, 11);
 
+const generateOrderNumber = () => Math.floor(Math.random() * 900) + 100;
+
 export default function App() {
    const [view, setView] = useState<ViewState>('POS');
    const [activeCategory, setActiveCategory] = useState<string | null>(null);
@@ -56,6 +58,7 @@ export default function App() {
    const [paymentResult, setPaymentResult] = useState<string | null>(null);
    const [isProductsMinimized, setIsProductsMinimized] = useState(false);
    const [isOrderMinimized, setIsOrderMinimized] = useState(false);
+   const [orderNumber, setOrderNumber] = useState<number>(() => generateOrderNumber());
 
    const { isMobilePortrait } = useMobileDetection();
 
@@ -231,6 +234,7 @@ export default function App() {
       setOrder([]);
       setActiveCategory(null);
       setActiveMenuParentOrderId(null);
+      setOrderNumber(generateOrderNumber());
    };
 
    const toggleHomeView = () => {
@@ -371,6 +375,7 @@ export default function App() {
                         <Sidebar
                            order={order}
                            total={total}
+                           orderNumber={orderNumber}
                            onUpdateQuantity={updateQuantity}
                            onRemoveFromOrder={removeFromOrder}
                            onClearOrder={clearOrder}
@@ -456,6 +461,7 @@ export default function App() {
                <Sidebar
                   order={order}
                   total={total}
+                  orderNumber={orderNumber}
                   onUpdateQuantity={updateQuantity}
                   onRemoveFromOrder={removeFromOrder}
                   onClearOrder={clearOrder}

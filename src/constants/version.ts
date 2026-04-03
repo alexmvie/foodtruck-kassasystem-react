@@ -1,7 +1,7 @@
 // 🎯 SOURCE OF TRUTH: Zentrale Versionsverwaltung
 // ⚠️ IMMER HIER UPDATEN - Keine anderen Versionen im Code!
 
-export const APP_VERSION = '1.1.1';
+export const APP_VERSION = '1.1.2';
 
 export const VERSION_HISTORY = {
   '1.0.0': 'Initial release with black button text and tokenized styling',
@@ -17,6 +17,7 @@ export const VERSION_HISTORY = {
   '1.0.10': 'Fixed sidebar issue',
   '1.1.0': 'Grouped menu items with parent-child extras flow',
   '1.1.1': 'Complete product catalog with detailed pricing and new extras',
+  '1.1.2': 'Added unique order numbers to order display',
 } as const;
 
 export type AppVersion = keyof typeof VERSION_HISTORY;

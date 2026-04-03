@@ -239,4 +239,6 @@ allgemein für alle produkte und extras:
 jede reihe muss eine andere farbe haben, alle buttons in dieser reihe müssen die selbe farbe haben
 
 
-
+version 1.1.2:
+- füge der bestellung eine eindeutige nummer hinzu
+zb BESTELLUNG #123
